@@ -1,0 +1,44 @@
+:root {
+    /** Themed color configuration */
+
+    --body-bgcolor-rgb: 245, 247, 251;
+
+    --primary-color: rgb(12, 119, 227);
+    --primary-color-rgb: 12, 119, 227;
+    /* login btn bgcolor ,accordion section header bgcolor,
+    filled btn (with hover) bgcolor & outlined hover bgcolor,
+    dropdown list hover color, */
+
+    --secondary-color: rgb(67, 175, 247);
+    --secondary-color-rgb: 67, 175, 247;
+    /* dropdown hover bgcolor */
+
+    --default-color: rgb(255, 255, 255);
+    --default-color-rgb: 255, 255, 255;
+    /* left Menu text, selected list, footer text,
+     dropdown bgcolor ,loginpage & loginbox bgcolor,
+     topbar bgcolor*/
+
+    --dark-color: rgb(0, 0, 0);
+    --dark-color-rgb: 0, 0, 0;
+    /* topbar text color , form label & data color, dropdown color,
+    copyrights color, login input TextField color & bgcolor*/
+
+    --disabled-color: rgb(128, 128, 128);
+    --disabled-color-rgb: 128, 128, 128;
+    /* disabled btn color & bgcolor , subheader color,
+    Drawer header color*/
+
+    --sidebar-bgcolor-rgb: 34, 44, 60;
+    --sidebar-text-color-rgb: var(--default-color-rgb);
+    /* sidebar background color */
+
+    /** Standard color configuration */
+    --info-color: rgb(85, 162, 250);
+    --warning-color: rgb(255, 204, 0);
+    --error-color: rgba(245, 22, 22, 0.692);
+    --success-color: rgb(46, 199, 110);
+    --stroke-color: rgb(255, 255, 255);
+    
+    /** Themed color configuration ends*/
+}

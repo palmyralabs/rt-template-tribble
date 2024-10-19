@@ -1,0 +1,106 @@
+@import url('./colorDef.css');
+
+/* -- Button Color -- */
+.py-filled-button {
+    background-color: var(--filled-btn-bgcolor) !important;
+    color: var(--filled-btn-text-color) !important;
+}
+
+.py-filled-button:hover {
+    background-color: var(--filled-btn-hover-bgcolor) !important;
+    color: var(--filled-btn-hover-text-color) !important;
+}
+
+.py-cancel-filled-button {
+    background-color: var(--cancel-btn-bgcolor) !important;
+    color: var(--cancel-btn-color) !important;
+}
+
+.py-cancel-outlined-button {
+    background-color: var(--cancel-button-bgcolor) !important;
+    border-color: var(--outlined-btn-border-color) !important;
+    color: var(--cancel-btn-color) !important;
+}
+
+.py-cancel-outlined-button:hover {
+    background-color: var(--cancel-btn-bgcolor) !important;
+    color: var(--cancel-btn-color) !important;
+}
+
+.py-default-filled-button {
+    background-color: var(--default-btn-bgcolor) !important;
+    border-color: var(--outlined-btn-border-color) !important;
+    color: var(--default-btn-color) !important;
+}
+
+.py-secondary-filled-button {
+    background-color: var(--secondary-btn-bgcolor) !important;
+    color: var(--secondary-btn-color) !important;
+}
+
+.py-outlined-button {
+    background-color: var(--outlined-btn-bgcolor) !important;
+    border-color: var(--outlined-btn-border-color) !important;
+    color: var(--outlined-btn-text-color) !important;
+}
+
+.py-outlined-button:hover {
+    background-color: var(--outlined-btn-hover-bgcolor) !important;
+    color: var(--outlined-btn-hover-text-color) !important;
+}
+
+.py-disabled-button {
+    background-color: var(--disabled-btn-bgcolor) !important;
+    color: var(--disabled-btn-text-color) !important;
+}
+
+.py-dropdown-button {
+    background-color: var(--default-bgcolor) !important;
+    border-color: var(--border-color) !important;
+    color: var(--default-text-color) !important;
+}
+
+.py-dropdown-content {
+    background-color: var(--default-bgcolor);
+    color: var(--default-text-color);
+    border-color: var(--border-color);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+.py-datagrid-title {
+    color: var(--disable-text-color);
+}
+
+.py-baseGrid-header-sort-icon {
+    color: rgba(var(--default-text-color-rgb), 0.5)
+}
+
+.py-action-button {
+    border: none !important;
+    background-color: var(--filled-btn-bgcolor) !important;
+    color: var(--filled-btn-text-color) !important;
+    transition: all 0.3s ease;
+}
+
+.py-action-button:active {
+    transform: scale(0.98);
+}
+
+.py-filter-button {
+    background-color: var(--filled-btn-bgcolor) !important;
+    color: var(--filled-btn-text-color) !important;
+}
+
+.py-reset-button {
+    background-color: rgba(var(--primary-bgcolor-rgb), 0.12) !important;
+    color: var(--filled-btn-bgcolor) !important;
+}
+
+.py-data-grid-table {
+    border-color: var(--border-color) !important;
+}
+
+.py-dialog-header-right-container {
+    background-color: var(--cancel-btn-bgcolor);
+    color: var(--cancel-btn-color);
+}

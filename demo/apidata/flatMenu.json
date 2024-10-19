@@ -1,0 +1,30 @@
+{
+    "result": [
+        {
+            "id": 1,
+            "name": "Home",
+            "code": "home"
+        },
+        {
+            "id": 2,
+            "name": "Summary Grid",
+            "code": "grid"
+        },
+        {
+            "id": 3,
+            "name": "Summary Edit Grid",
+            "code": "editGrid"
+        },
+        {
+            "id": 4,
+            "name": "Summary Drawer Grid",
+            "code": "drawerGrid"
+        },
+        {
+            "id": 5,
+            "name": "Summary Dialog Grid",
+            "code": "dialogGrid"
+        }
+    ],
+    "status": 200
+}

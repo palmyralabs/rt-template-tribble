@@ -1,0 +1,23 @@
+{
+    "result": [
+        {
+            "id": 1,
+            "name": "Tenkasi",
+            "population": 1440795,
+            "dob": "10-01-2021"
+        },
+        {
+            "id": 2,
+            "name": "Trinelveli",
+            "population": 3077233,
+            "dob": "10-01-2021"
+        },
+        {
+            "id": 3,
+            "name": "Madurai",
+            "population": 3610000,
+            "dob": "10-01-2021"
+        }
+    ],
+    "total": 50
+}

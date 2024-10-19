@@ -1,0 +1,61 @@
+{
+  "name": "@palmyralabs/template-tribble",
+  "private": true,
+  "version": "0.2.0",
+  "type": "module",
+  "main": "dist/main.js",
+  "types": "dist/main.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/main.js"
+    },
+    "./ThemeBlue": "./dist/blue.js",
+    "./ThemeOrange": "./dist/orange.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "start": "vite",
+    "dev": "vite",
+    "demoBuild": "tsc && vite build",
+    "build": "tsc --p ./build.tsconfig.json && vite --config vite.config.js build",
+    "compile": "tsc --p ./demo.tsconfig.json && tsc --p ./build.tsconfig.json",
+    "preview": "vite preview",
+    "prepublishOnly": "npm run build",
+    "test": "vitest --root test/"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react-swc": "^3.7.0",
+    "glob": "^11.0.0",
+    "serve-static": "^1.15.0",
+    "typescript": "^5.5.2",
+    "vite": "^5.3.5",
+    "vite-plugin-dts": "^4.0.3",
+    "vite-plugin-lib-inject-css": "^2.1.1"
+  },
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "peerDependencies": {
+    "@mantine/core": "^7.13.3",
+    "@palmyralabs/palmyra-wire": "^1.1.0",
+    "@palmyralabs/rt-forms": "github:palmyralabs/rt-forms",
+    "@palmyralabs/rt-forms-mantine": "github:palmyralabs/rt-forms-mantine",
+    "@palmyralabs/ts-predicates": "github:palmyralabs/ts-predicates",
+    "@palmyralabs/ts-utils": "^0.1.0",
+    "@tanstack/react-table": "^8.20.1",
+    "classnames": "^2.5.1",
+    "react-icons": "^5.3.0",
+    "react-router-dom": "^6.26.0",
+    "react-syntax-highlighter": "^15.5.0",
+    "react-toastify": "^10.0.5",
+    "usehooks-ts": "^3.1.0"
+  },
+  "overrides": {
+    "glob": "^11.0.0"
+  }
+}

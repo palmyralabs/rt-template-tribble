@@ -1,0 +1,81 @@
+.sidebar {
+    color: var(--sidebar-color);
+    background-color: var(--sidebar-bgcolor);
+    height: 100vh;
+    position: relative;
+}
+
+.sidebar-footer {
+    padding: 5px;
+    width: 250px;
+    position: fixed;
+    bottom: 0;
+    text-align: center;
+}
+
+.sidebar-header {
+    margin-bottom: 20px;
+}
+
+.sidebar-footer-text {
+    color: var(--sidebar-footer-color);
+    font-size: 13px;
+    font-kerning: normal;
+    letter-spacing: 0.05rem;
+    bottom: 0;
+}
+
+.sidebar-middle {
+    height: 80vh;
+    overflow: auto;
+}
+
+.sidebar-title {
+    display: flex;
+    align-items: center;
+    font-size: var(--primary-fontsize) !important;
+    gap: 5px;
+    width: 100% !important;
+    color: var(--sidebar-title-color);
+}
+
+.sidebar-title.minimized {
+    display: flex;
+    align-items: center;
+    gap: 45px;
+    width: 100% !important;
+}
+
+.sidebar-title-menu-icon {
+    cursor: pointer;
+    color: var(--sidebar-icon-color)
+}
+
+.sidebar-header {
+    margin-bottom: 0px;
+    position: relative;
+
+    .MuiToolbar-root {
+        margin-bottom: 0px;
+    }
+}
+
+.sidebar-title-text {
+    font-size: 20px;
+}
+
+.sidebar-middle {
+    border-right: 01px solid rgb(238, 238, 238);
+    height: calc(100vh - 120px);
+    font-family: rubik;
+
+    .async-tree-menu-list:hover {
+        background-color: rgb(198, 198, 198, 0.1);
+        color: rgb(0, 0, 0);
+    }
+
+    .async-tree-menu-selected-list {
+        background-color: rgba(var(--secondary-bgcolor-rgb), 0.1);
+        color: var(--secondary-bgcolor);
+    }
+}

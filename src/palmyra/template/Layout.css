@@ -1,0 +1,116 @@
+
+/* -- Button Style -- */
+.py-filled-button,
+.py-secondary-filled-button,
+.py-cancel-filled-button {
+    border-radius: 5px !important;
+    gap: 5px !important;
+    font-size: 14px !important;
+    cursor: pointer;
+    text-transform: none !important;
+    transition: all 0.3s ease;
+}
+
+.py-filled-button:active,
+.py-secondary-filled-button:active,
+.py-cancel-filled-button:active {
+    transform: scale(0.98);
+}
+
+.py-outlined-button,
+.py-cancel-oulined-button,
+.py-default-filled-button {
+    border-radius: 5px !important;
+    gap: 5px !important;
+    font-size: 14px !important;
+    border: 1px solid !important;
+    cursor: pointer;
+    text-transform: none !important;
+}
+
+.py-outlined-button:hover {
+    box-shadow: none !important;
+}
+
+.py-button-icon {
+    font-size: 16px !important;
+    margin-left: 0px !important;
+    vertical-align: middle !important;
+    cursor: pointer !important;
+}
+
+.py-disabled-button {
+    border-radius: 5px !important;
+    gap: 5px !important;
+    text-transform: none !important;
+    cursor: not-allowed;
+}
+
+.py-form-header-container {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    justify-content: space-between;
+    font-size: 21px;
+    margin-bottom: 10px;
+}
+
+.py-drawer-form-btn-container {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 25px;
+}
+
+.py-dialog-header-right-container,
+.py-drawer-header-right-container {
+    text-align: end;
+    padding: 5px 5px 0 5px;
+    border-radius: 5px;
+    text-align: end;
+}
+
+.py-drawer-header-text {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.py-drawer-content-container {
+    padding: 10px;
+}
+
+.py-header-close-icon {
+    cursor: pointer;
+}
+
+/* -- Form Style -- */
+.py-form-container {
+    padding: 10px;
+}
+
+.py-form-header-button-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* -- Grid Style  -- */
+.py-grid-container {
+    padding: 10px;
+}
+
+.py-data-grid-table {
+    margin-top: 10px;
+    border: 1px solid;
+}
+
+.py-baseGrid {
+    border-radius: 5px !important;
+    border-collapse: separate !important;
+}
+
+.py-grid-header-row,
+.py-grid-data-cell {
+    border-bottom-left-radius: 0px !important;
+    border-collapse: unset !important;
+}
