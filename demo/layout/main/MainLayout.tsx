@@ -42,7 +42,6 @@ const MainLayout = (props: MainLayoutInput) => {
           <Topbar mobileOpen={mobileOpen} setMobileOpen={setMobileOpen} display={display} />
           <div>
             <Outlet />
-            <div>outlet</div>
           </div>
         </div>
       </div>

@@ -5,7 +5,7 @@ import { EditForm } from "./EditForm";
 import { NewForm } from "./NewForm";
 import { IOptions } from "../Types";
 import { ErrorHandler } from "@palmyralabs/palmyra-wire";
-import { Button, Dialog } from "@mantine/core";
+import { Button, Modal } from "@mantine/core";
 
 interface IDialogGridFormInput {
     options: IOptions,
@@ -71,12 +71,8 @@ const SummaryDialogForm = forwardRef((props: IDialogGridFormInput, ref: MutableR
 
     return (<>
         {dialogOpen &&
-            <Dialog opened={dialogOpen} onClose={doCancel} onKeyDown={handleKeyPress}>
-                <div className='py-form-header-container'>
-                    <div>{title}</div>
-                    <div className='py-dialog-header-right-container'>
-                    </div>
-                </div>
+            <Modal opened={dialogOpen} onClose={doCancel} onKeyDown={handleKeyPress} title={title}
+                centered>
                 {data?.[idKey] ?
                     <EditForm setValid={setValid} formRef={formRef} onQueryFailure={onQueryFailure}
                         handleKeyPress={handleKeyPress} options={props.options}
@@ -96,7 +92,7 @@ const SummaryDialogForm = forwardRef((props: IDialogGridFormInput, ref: MutableR
                         <u style={{ width: '5px' }}>S</u>ave
                     </Button>
                 </div>
-            </Dialog>}
+            </Modal>}
     </>
     );
 });

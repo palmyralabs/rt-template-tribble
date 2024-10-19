@@ -16,7 +16,10 @@ interface SidebarInput {
 }
 
 const Sidebar = (props: SidebarInput) => {
-  return <div className="sidebar">side bar</div>
+  const Menu = props.SideMenu;
+  return <div className="sidebar">
+    <Menu sidebarWidth={true} />
+  </div>
 };
 
 export { Sidebar };
