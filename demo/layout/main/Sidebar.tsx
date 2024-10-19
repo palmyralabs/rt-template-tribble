@@ -16,9 +16,8 @@ interface SidebarInput {
 }
 
 const Sidebar = (props: SidebarInput) => {
-  return <div>side bar</div>
+  return <div className="sidebar">side bar</div>
 };
-
 
 export { Sidebar };
 

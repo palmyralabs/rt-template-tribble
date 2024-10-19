@@ -10,7 +10,7 @@ interface TopbarProps {
 const Topbar: React.FC<TopbarProps> = ({ mobileOpen, setMobileOpen, display }) => {
 
   return (
-    <div>top bar</div>
+    <div className='topbar'>top bar</div>
   );
 };
 

@@ -30,16 +30,15 @@ const MainLayout = (props: MainLayoutInput) => {
 
   const display = mobileMode ? "block" : "none";
   return (
-    <Box >      
+    <Box style={{ display: 'flex' }}>
       <Sidebar
         SideMenu={DynamicMenu}
         appTitle={props.appTitle} width={sideWidth} mobileOpen={mobileOpen}
         setMobileOpen={setMobileOpen} responsive={responsive} />
+      <Topbar mobileOpen={mobileOpen} setMobileOpen={setMobileOpen} display={display} />
       <Box
         component="main"
       >
-        {/* <Toolbar /> */}
-        <Topbar mobileOpen={mobileOpen} setMobileOpen={setMobileOpen} display={display} />
         <div style={{ marginTop: "64px" }}>
           <Outlet />
         </div>

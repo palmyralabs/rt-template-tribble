@@ -1,8 +1,9 @@
 .sidebar {
-    color: var(--sidebar-color);
-    background-color: var(--sidebar-bgcolor);
+    color: var(--secondary-text-color);
+    background-color: rgba(var(--sidebar-bgcolor-rgb), 1);
     height: 100vh;
     position: relative;
+    width: 260px;
 }
 
 .sidebar-footer {
