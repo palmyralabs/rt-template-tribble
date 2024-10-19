@@ -30,18 +30,26 @@ const MainLayout = (props: MainLayoutInput) => {
 
   const display = mobileMode ? "block" : "none";
   return (
-    <Box style={{ display: 'flex' }}>
-      <Sidebar
-        SideMenu={DynamicMenu}
-        appTitle={props.appTitle} width={sideWidth} mobileOpen={mobileOpen}
-        setMobileOpen={setMobileOpen} responsive={responsive} />
-      <Topbar mobileOpen={mobileOpen} setMobileOpen={setMobileOpen} display={display} />
+    <Box >
+      <div style={{ display: 'flex' }}>
+        <div>
+          <Sidebar
+            SideMenu={DynamicMenu}
+            appTitle={props.appTitle} width={sideWidth} mobileOpen={mobileOpen}
+            setMobileOpen={setMobileOpen} responsive={responsive} />
+        </div>
+        <div style={{width:'calc(100% - 260px)'}}>
+          <Topbar mobileOpen={mobileOpen} setMobileOpen={setMobileOpen} display={display} />
+          <div>
+            <Outlet />
+            <div>outlet</div>
+          </div>
+        </div>
+      </div>
       <Box
         component="main"
       >
-        <div style={{ marginTop: "64px" }}>
-          <Outlet />
-        </div>
+
       </Box>
     </Box>
   );
