@@ -6,4 +6,6 @@ export { SummaryPopupGrid } from './popup/SummaryPopupGrid'
 export { NewForm } from "./form/NewForm"
 export { EditForm } from "./form/EditForm"
 export { ViewForm } from "./form/ViewForm"
+
+export * from './menu'
 export * from './Types'

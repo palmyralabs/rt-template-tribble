@@ -1,0 +1,7 @@
+.async-tree-menu-selected-list {
+    background-color: rgba(228, 227, 227, 0.334);
+}
+
+.async-tree-menu-list:hover {
+    background: rgba(246, 246, 246, 0.182);
+}

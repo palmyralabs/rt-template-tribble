@@ -3,9 +3,10 @@ import { Outlet } from "react-router-dom";
 import Topbar from "./Topbar";
 import { useEffect, useState } from "react";
 import { useWindowSize } from "usehooks-ts";
-import DynamicMenu from "../../components/Grid/DynamicMenu"
+import DynamicMenu from "../../../src/palmyra/template/menu/DynamicMenu"
 import { Sidebar } from "./Sidebar";
 import { Box } from "@mantine/core";
+import { PalmyraTreeStore } from "@palmyralabs/palmyra-wire";
 
 interface MainLayoutInput {
   sideBarWidth?: string,
@@ -13,6 +14,7 @@ interface MainLayoutInput {
 }
 
 const MainLayout = (props: MainLayoutInput) => {
+
   var sideWidth = props.sideBarWidth;
   if (!sideWidth) {
     sideWidth = '260px';
@@ -33,8 +35,7 @@ const MainLayout = (props: MainLayoutInput) => {
     <Box >
       <div style={{ display: 'flex' }}>
         <div>
-          <Sidebar
-            SideMenu={DynamicMenu}
+          <Sidebar            
             appTitle={props.appTitle} width={sideWidth} mobileOpen={mobileOpen}
             setMobileOpen={setMobileOpen} responsive={responsive} />
         </div>

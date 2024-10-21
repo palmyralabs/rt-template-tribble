@@ -1,6 +1,6 @@
 .sidebar {
     color: var(--secondary-text-color);
-    background-color: rgba(var(--sidebar-bgcolor-rgb), 1);
+    background-color: rgba(var(--sidebar-bgcolor-rgb), 0.95);
     height: 100vh;
     position: relative;
     width: 260px;

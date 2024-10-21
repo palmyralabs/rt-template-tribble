@@ -1,6 +1,8 @@
 
 import { FC } from "react";
 import './Sidebar.css';
+import { DynamicMenu } from "../../../src/main";
+import { PalmyraTreeStore } from "@palmyralabs/palmyra-wire";
 
 interface ISideMenuInput {
   sidebarWidth: boolean
@@ -11,14 +13,14 @@ interface SidebarInput {
   width: string,
   mobileOpen?: boolean,
   setMobileOpen?: any,
-  responsive?: boolean,
-  SideMenu: FC<ISideMenuInput>
+  responsive?: boolean
 }
 
 const Sidebar = (props: SidebarInput) => {
-  const Menu = props.SideMenu;
+  const treeStore = new PalmyraTreeStore("", "flatMenu.json", {});
+
   return <div className="sidebar">
-    <Menu sidebarWidth={true} />
+    <DynamicMenu treeStore={treeStore} />
   </div>
 };
 
