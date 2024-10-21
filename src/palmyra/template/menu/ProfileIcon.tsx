@@ -5,22 +5,24 @@ interface IProfile {
 }
 
 const ProfileIcon = (props: IProfile) => {
-    return <div className="profile-menu"> <Popover width={200} position="bottom" withArrow shadow="md">
+    return <div className="profile-menu"> <Popover width={200} position="bottom" withArrow>
         <Popover.Target>
-            <Button>Welcome {props.displayName}</Button>
+            <Button variant="transparent" size="compact-md">Welcome {props.displayName}</Button>
         </Popover.Target>
         <Popover.Dropdown>
-            <ul>
-                <li>
-                    <span className='profile-sub-menu'>Profile</span>
-                </li>
-                <li>
-                    <span className='profile-sub-menu'>Settings</span>
-                </li>
-                <li>
-                    <span className='profile-sub-menu'>Log out</span>
-                </li>
-            </ul>
+            <div className="profile-menu-list-container">
+                <ul>
+                    <li>
+                        <span className='profile-sub-menu'>Profile</span>
+                    </li>
+                    <li>
+                        <span className='profile-sub-menu'>Settings</span>
+                    </li>
+                    <li>
+                        <span className='profile-sub-menu'>Log out</span>
+                    </li>
+                </ul>
+            </div>
         </Popover.Dropdown>
     </Popover>
     </div>

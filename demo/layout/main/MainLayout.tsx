@@ -34,12 +34,12 @@ const MainLayout = (props: MainLayoutInput) => {
   return (
     <Box >
       <div style={{ display: 'flex' }}>
-        <div>
+        <div className="sidebar-container">
           <Sidebar            
             appTitle={props.appTitle} width={sideWidth} mobileOpen={mobileOpen}
             setMobileOpen={setMobileOpen} responsive={responsive} />
         </div>
-        <div style={{width:'calc(100% - 260px)'}}>
+        <div style={{width:'calc(100%)'}}>
           <Topbar mobileOpen={mobileOpen} setMobileOpen={setMobileOpen} display={display} />
           <div>
             <Outlet />

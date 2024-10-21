@@ -1,9 +1,12 @@
 .sidebar {
     color: var(--secondary-text-color);
-    background-color: rgba(var(--sidebar-bgcolor-rgb), 0.95);
     height: 100vh;
     position: relative;
     width: 260px;
+}
+
+.sidebar-container {
+    background-color: rgba(var(--sidebar-bgcolor-rgb), 0.95);
 }
 
 .sidebar-footer {
@@ -15,7 +18,10 @@
 }
 
 .sidebar-header {
-    margin-bottom: 20px;
+    padding: 0.8em 0 0 0;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.5em;
 }
 
 .sidebar-footer-text {
@@ -72,7 +78,7 @@
 
     .async-tree-menu-list:hover {
         background-color: rgb(198, 198, 198, 0.1);
-        color: rgb(0, 0, 0);
+        color: rgba(0, 0, 0, 0.308);
     }
 
     .async-tree-menu-selected-list {

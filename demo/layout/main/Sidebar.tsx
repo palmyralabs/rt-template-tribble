@@ -20,6 +20,9 @@ const Sidebar = (props: SidebarInput) => {
   const treeStore = new PalmyraTreeStore("", "flatMenu.json", {});
 
   return <div className="sidebar">
+    <div className="sidebar-header">
+      Sidebar Header
+    </div>
     <DynamicMenu treeStore={treeStore} />
   </div>
 };
