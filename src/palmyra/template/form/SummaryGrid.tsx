@@ -8,7 +8,7 @@ import { PalmyraGrid } from "@palmyralabs/rt-forms-mantine";
 
 interface IGridInput extends ISummaryGridInput {
     gridRef?: any,
-    grid?: 'view' | 'edit'
+    clickTo?: 'view' | 'edit'
 }
 
 function SummaryGrid(props: IGridInput) {
@@ -18,7 +18,7 @@ function SummaryGrid(props: IGridInput) {
 
     const handleRowClick = (rowData) => {
         const data = { id: rowData[idKey] };
-        const grid = props.grid || 'view'
+        const grid = props.clickTo || 'view'
         navigate(StringFormat(grid + '/{id}', data));
     }
 
