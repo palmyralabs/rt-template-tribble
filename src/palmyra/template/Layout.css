@@ -1,4 +1,3 @@
-
 /* -- Button Style -- */
 .py-filled-button,
 .py-secondary-filled-button,
@@ -106,7 +105,6 @@
 
 .py-baseGrid {
     border-radius: 5px !important;
-    border-collapse: separate !important;
 }
 
 .py-grid-header-row,
