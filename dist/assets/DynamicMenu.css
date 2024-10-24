@@ -1,1 +1,1 @@
-.async-tree-menu-selected-list{background-color:#e4e3e355}.async-tree-menu-list:hover{background:#f6f6f62e}
+.async-tree-menu-selected-list{background:rgba(var(--default-color-rgb),.15)}.async-tree-menu-list{color:rgba(var(--default-color-rgb),.45)}.async-tree-menu-list:hover{background:rgba(var(--default-color-rgb),.15);color:var(--default-color)}
