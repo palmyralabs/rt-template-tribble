@@ -101,14 +101,35 @@
 .py-data-grid-table {
     margin-top: 10px;
     border: 1px solid;
+    max-height: 80vh;
+    overflow: auto;
+}
+
+.py-grid-header {
+    position: sticky;
+    top: 0;
+}
+
+.mantine-Table-table {
+    border-collapse: unset !important;
 }
 
 .py-baseGrid {
     border-radius: 5px !important;
+    border-collapse: collapse !important;
+    position: relative !important;
+}
+
+.py-baseGrid-header-cell,
+.py-grid-data-cell {
+    border-collapse: collapse !important;
 }
 
 .py-grid-header-row,
 .py-grid-data-cell {
     border-bottom-left-radius: 0px !important;
-    border-collapse: unset !important;
+    border-collapse: collapse !important;
+}
+.py-selectable-pagination-container{
+    margin-top: 10px;
 }

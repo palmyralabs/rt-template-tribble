@@ -3,10 +3,8 @@ import { Outlet } from "react-router-dom";
 import Topbar from "./Topbar";
 import { useEffect, useState } from "react";
 import { useWindowSize } from "usehooks-ts";
-import DynamicMenu from "../../../src/palmyra/template/menu/DynamicMenu"
 import { Sidebar } from "./Sidebar";
-import { Box } from "@mantine/core";
-import { PalmyraTreeStore } from "@palmyralabs/palmyra-wire";
+import { Box, ScrollArea } from "@mantine/core";
 
 interface MainLayoutInput {
   sideBarWidth?: string,
@@ -32,24 +30,49 @@ const MainLayout = (props: MainLayoutInput) => {
 
   const display = mobileMode ? "block" : "none";
   return (
-    <Box >
-      <div style={{ display: 'flex' }}>
+    <Box style={{ height: '100vh', display: 'flex' }}>
+      <Box
+        style={{
+          width: sideWidth,
+          position: "fixed",
+          top: 0,
+          bottom: 0,
+          left: 0,
+          display: "flex"
+        }}
+      >
         <div className="sidebar-container">
-          <Sidebar            
+          <Sidebar
             appTitle={props.appTitle} width={sideWidth} mobileOpen={mobileOpen}
             setMobileOpen={setMobileOpen} responsive={responsive} />
         </div>
-        <div style={{width:'calc(100%)'}}>
-          <Topbar mobileOpen={mobileOpen} setMobileOpen={setMobileOpen} display={display} />
-          <div>
-            <Outlet />
-          </div>
-        </div>
-      </div>
+      </Box>
       <Box
-        component="main"
+        style={{
+          marginLeft: sideWidth,
+          width: `calc(100% - ${sideWidth})`,
+          display: "flex",
+          flexDirection: "column",
+        }}
       >
-
+        <Box
+          style={{
+            position: "fixed",
+            top: 0,
+            left: sideWidth,
+            right: 0
+          }}
+        >
+          <Topbar mobileOpen={mobileOpen} setMobileOpen={setMobileOpen} display={display} />
+        </Box>
+        <ScrollArea
+          style={{
+            marginTop: "50px",
+            height: "calc(100vh - 60px)",
+          }}
+        >
+          <Outlet />
+        </ScrollArea>
       </Box>
     </Box>
   );
