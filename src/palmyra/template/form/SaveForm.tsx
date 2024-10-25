@@ -4,6 +4,8 @@ import { toast } from 'react-toastify';
 import { IFormEditInput } from "../Types";
 import { ISaveForm, PalmyraEditForm } from "@palmyralabs/rt-forms";
 import { Button } from "@mantine/core";
+import { FaCheck } from "react-icons/fa";
+import { IoMdClose } from "react-icons/io";
 
 
 function SaveForm(props: IFormEditInput) {
@@ -53,17 +55,18 @@ function SaveForm(props: IFormEditInput) {
                     <div className="py-form-header-button-container">
                         <Button
                             className='py-cancel-filled-button'
-                            onClick={() => window.history.back()}>                            
+                            onClick={() => window.history.back()}
+                            leftSection={<IoMdClose className="py-button-icon" />}>
                             Cancel
                         </Button>
                         <Button disabled={!isValid}
                             className={!isValid ? 'py-disabled-button' : 'py-filled-button'}
-                            onClick={saveFormData}>                            
-                            <u style={{ width: '5px' }}>S</u>ave
+                            onClick={saveFormData} leftSection={<FaCheck className="py-button-icon" />}>
+                            <u style={{ width: '9px' }}>S</u>ave
                         </Button>
                     </div>
                 </div>
-                <PalmyraEditForm mode="save" id={id} {...props.options} onQueryData={onQueryData} 
+                <PalmyraEditForm mode="save" id={id} {...props.options} onQueryData={onQueryData}
                     onValidChange={setValid} ref={formRef}>
                     {props.children}
                 </PalmyraEditForm>

@@ -6,6 +6,8 @@ import { NewForm } from "./NewForm";
 import { IOptions } from "../Types";
 import { ErrorHandler } from "@palmyralabs/palmyra-wire";
 import { Button, Modal } from "@mantine/core";
+import { IoMdClose } from "react-icons/io";
+import { FaCheck } from "react-icons/fa";
 
 interface IDialogGridFormInput {
     options: IOptions,
@@ -83,13 +85,14 @@ const SummaryDialogForm = forwardRef((props: IDialogGridFormInput, ref: MutableR
                 <div className="py-drawer-form-btn-container">
                     <Button
                         className='py-cancel-filled-button'
-                        onClick={doCancel} tabIndex={-1}>
+                        onClick={doCancel} tabIndex={-1}
+                        leftSection={<IoMdClose className="py-button-icon"/>}>
                         Cancel
                     </Button>
                     <Button disabled={!isValid}
                         className={!isValid ? 'py-disabled-button' : 'py-filled-button'}
-                        onClick={doSaveClose}>
-                        <u style={{ width: '5px' }}>S</u>ave
+                        onClick={doSaveClose} leftSection={<FaCheck className="py-button-icon"/>}>
+                        <u style={{ width: '9px' }}>S</u>ave
                     </Button>
                 </div>
             </Modal>}

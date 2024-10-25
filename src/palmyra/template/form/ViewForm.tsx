@@ -2,6 +2,8 @@ import { useNavigate } from "react-router-dom";
 import { IFormViewInput } from '../Types';
 import { PalmyraViewForm } from '@palmyralabs/rt-forms';
 import { Button } from "@mantine/core";
+import { IoIosArrowBack } from "react-icons/io";
+import { RiEdit2Fill } from "react-icons/ri";
 
 
 function ViewForm(props: IFormViewInput) {
@@ -23,12 +25,14 @@ function ViewForm(props: IFormViewInput) {
                 <div>{props.title}</div>
                 <div className="py-form-header-button-container">
                     <Button onClick={goToGrid}
-                        className='py-filled-button'>                        
+                        className='py-filled-button'
+                        leftSection={<IoIosArrowBack className="py-button-icon"/>}>                        
                         Back
                     </Button>
                     <Button
                         className='py-filled-button'
-                        onClick={goToEditForm}>
+                        onClick={goToEditForm}
+                        leftSection={<RiEdit2Fill className="py-button-icon"/>}>
                         Edit
                     </Button>
                 </div>

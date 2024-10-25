@@ -1,3 +1,8 @@
+/* -- Mantine css-- */
+.mantine-Button-section {
+    display: block !important;
+}
+
 /* -- Button Style -- */
 .py-filled-button,
 .py-secondary-filled-button,
@@ -130,6 +135,7 @@
     border-bottom-left-radius: 0px !important;
     border-collapse: collapse !important;
 }
-.py-selectable-pagination-container{
+
+.py-selectable-pagination-container {
     margin-top: 10px;
 }

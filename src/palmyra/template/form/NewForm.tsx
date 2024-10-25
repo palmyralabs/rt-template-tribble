@@ -4,6 +4,8 @@ import { toast } from 'react-toastify';
 import { IFormNewInput } from "../Types";
 import { ISaveForm, PalmyraNewForm } from "@palmyralabs/rt-forms";
 import { Button } from "@mantine/core";
+import { IoMdClose } from "react-icons/io";
+import { FaCheck } from "react-icons/fa";
 
 
 function NewForm(props: IFormNewInput) {
@@ -60,13 +62,14 @@ function NewForm(props: IFormNewInput) {
                     <div className="py-form-header-button-container">
                         <Button
                             className='py-cancel-filled-button'
-                            onClick={() => window.history.back()}>                            
+                            onClick={() => window.history.back()}
+                            leftSection={<IoMdClose className="py-button-icon"/>}>                            
                             Cancel
                         </Button>
                         <Button disabled={!isValid}
                             className={!isValid ? 'py-disabled-button' : 'py-filled-button'}
-                            onClick={saveFormData}>                            
-                            <u style={{ width: '5px' }}>S</u>ave
+                            onClick={saveFormData} leftSection={<FaCheck className="py-button-icon"/>}>                            
+                            <u style={{ width: '9px' }}>S</u>ave
                         </Button>
                     </div>
                 </div>
