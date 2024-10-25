@@ -69,9 +69,9 @@ const SummaryDrawerForm = forwardRef((props: IDialogGridFormInput, ref: MutableR
     const drawerOpen: boolean = data != undefined;
     const EditFormlet = props.EditFormlet;
     const NewFormlet = props.NewFormlet;
-
-    return (<Drawer position="right" opened={drawerOpen} onClose={onCancel} title={title}>
-        <div className="py-drawer-content-container">            
+    const formTitle = (!data?.[idKey]) ? `New ${title}` : `Edit ${title}`;
+    return (<Drawer position="right" opened={drawerOpen} onClose={onCancel} title={formTitle}>
+        <div className="py-drawer-content-container">
             {data?.[idKey] ?
                 <EditForm setValid={setValid} formRef={formRef} onQueryFailure={onQueryFailure}
                     handleKeyPress={handleKeyPress} options={props.options}
@@ -82,12 +82,12 @@ const SummaryDrawerForm = forwardRef((props: IDialogGridFormInput, ref: MutableR
             <div className="py-drawer-form-btn-container">
                 <Button
                     className='py-cancel-filled-button'
-                    onClick={doCancel} tabIndex={-1} leftSection={<IoMdClose className="py-button-icon"/>}>
+                    onClick={doCancel} tabIndex={-1} leftSection={<IoMdClose className="py-button-icon" />}>
                     Cancel
                 </Button>
                 <Button disabled={!isValid}
                     className={!isValid ? 'py-disabled-button' : 'py-filled-button'}
-                    onClick={doSaveClose} leftSection={<FaCheck className="py-button-icon"/>}>                    
+                    onClick={doSaveClose} leftSection={<FaCheck className="py-button-icon" />}>
                     <u>S</u>ave
                 </Button>
             </div>

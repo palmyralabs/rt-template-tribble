@@ -70,10 +70,10 @@ const SummaryDialogForm = forwardRef((props: IDialogGridFormInput, ref: MutableR
     const dialogOpen: boolean = data != undefined;
     const EditFormlet = props.EditFormlet;
     const NewFormlet = props.NewFormlet;
-
+    const formTitle = (!data?.[idKey]) ? `New ${title}` : `Edit ${title}`;
     return (<>
         {dialogOpen &&
-            <Modal opened={dialogOpen} onClose={doCancel} onKeyDown={handleKeyPress} title={title}
+            <Modal opened={dialogOpen} onClose={doCancel} onKeyDown={handleKeyPress} title={formTitle}
                 centered>
                 {data?.[idKey] ?
                     <EditForm setValid={setValid} formRef={formRef} onQueryFailure={onQueryFailure}
