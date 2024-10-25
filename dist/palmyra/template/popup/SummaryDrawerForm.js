@@ -1,71 +1,75 @@
 import { jsx as t, jsxs as i } from "react/jsx-runtime";
-import { forwardRef as D, useState as K, useRef as F, useImperativeHandle as O } from "react";
-import { useSaveForm as j } from "../hooks/useSaveForm.js";
-import { EditForm as k } from "./EditForm.js";
-import { NewForm as I } from "./NewForm.js";
-import { Drawer as L, Button as h } from "@mantine/core";
-const Q = D((e, v) => {
-  const y = e.title, l = e.idKey || "id", [o, n] = K(void 0), w = F(0), s = e.gridRef, C = v || F();
-  O(C, () => ({ setData: n }), [s]);
+import { forwardRef as D, useState as I, useRef as F, useImperativeHandle as k } from "react";
+import { useSaveForm as K } from "../hooks/useSaveForm.js";
+import { EditForm as M } from "./EditForm.js";
+import { NewForm as O } from "./NewForm.js";
+import { Drawer as j, Button as y } from "@mantine/core";
+import { I as L } from "../../../chunks/index.js";
+import { F as T } from "../../../chunks/index2.js";
+const A = D((e, h) => {
+  const p = e.title, s = e.idKey || "id", [o, n] = I(void 0), v = F(0), c = e.gridRef, C = h || F();
+  k(C, () => ({ setData: n }), [c]);
   const r = () => {
     n(void 0);
-  }, p = () => {
-    n(void 0), c();
-  }, c = () => {
-    w.current += 1, s.current.refresh();
-  }, R = (u) => (r(), !1), b = (u) => {
+  }, b = () => {
+    n(void 0), l();
+  }, l = () => {
+    v.current += 1, c.current.refresh();
+  }, w = (u) => (r(), !1), N = (u) => {
     console.log(u);
   }, {
-    doCancel: N,
-    doSaveClose: E,
-    handleKeyPress: d,
-    setValid: a,
+    doCancel: R,
+    doSaveClose: S,
+    handleKeyPress: a,
+    setValid: d,
     isValid: m,
     formRef: f
-  } = j({ onCancel: r, onComplete: p, onFailure: b, onSave: c }), S = o != null, x = e.EditFormlet, g = e.NewFormlet;
-  return /* @__PURE__ */ t(L, { position: "right", opened: S, onClose: r, title: y, children: /* @__PURE__ */ i("div", { className: "py-drawer-content-container", children: [
-    o != null && o[l] ? /* @__PURE__ */ t(
-      k,
+  } = K({ onCancel: r, onComplete: b, onFailure: N, onSave: l }), E = o != null, g = e.EditFormlet, x = e.NewFormlet;
+  return /* @__PURE__ */ t(j, { position: "right", opened: E, onClose: r, title: p, children: /* @__PURE__ */ i("div", { className: "py-drawer-content-container", children: [
+    o != null && o[s] ? /* @__PURE__ */ t(
+      M,
       {
-        setValid: a,
+        setValid: d,
         formRef: f,
-        onQueryFailure: R,
-        handleKeyPress: d,
+        onQueryFailure: w,
+        handleKeyPress: a,
         options: e.options,
         ...e.options,
-        id: o == null ? void 0 : o[l],
-        FORMLET: x
+        id: o == null ? void 0 : o[s],
+        FORMLET: g
       }
     ) : /* @__PURE__ */ t(
-      I,
+      O,
       {
-        setValid: a,
+        setValid: d,
         formRef: f,
-        handleKeyPress: d,
+        handleKeyPress: a,
         options: e.options,
         ...e.options,
         initialData: o,
-        FORMLET: g
+        FORMLET: x
       }
     ),
     /* @__PURE__ */ i("div", { className: "py-drawer-form-btn-container", children: [
       /* @__PURE__ */ t(
-        h,
+        y,
         {
           className: "py-cancel-filled-button",
-          onClick: N,
+          onClick: R,
           tabIndex: -1,
+          leftSection: /* @__PURE__ */ t(L, { className: "py-button-icon" }),
           children: "Cancel"
         }
       ),
       /* @__PURE__ */ i(
-        h,
+        y,
         {
           disabled: !m,
           className: m ? "py-filled-button" : "py-disabled-button",
-          onClick: E,
+          onClick: S,
+          leftSection: /* @__PURE__ */ t(T, { className: "py-button-icon" }),
           children: [
-            /* @__PURE__ */ t("u", { style: { width: "5px" }, children: "S" }),
+            /* @__PURE__ */ t("u", { children: "S" }),
             "ave"
           ]
         }
@@ -74,5 +78,5 @@ const Q = D((e, v) => {
   ] }) });
 });
 export {
-  Q as SummaryDrawerForm
+  A as SummaryDrawerForm
 };

@@ -65,7 +65,7 @@ function EditForm(props: IFormEditInput) {
                         <Button disabled={!isValid}
                             className={!isValid ? 'py-disabled-button' : 'py-filled-button'}
                             onClick={saveFormData} leftSection={<FaCheck className="py-button-icon"/>}>
-                            <u style={{ width: '9px' }}>S</u>ave
+                            <u>S</u>ave
                         </Button>
                     </div>
                 </div>

@@ -88,7 +88,7 @@ const SummaryDrawerForm = forwardRef((props: IDialogGridFormInput, ref: MutableR
                 <Button disabled={!isValid}
                     className={!isValid ? 'py-disabled-button' : 'py-filled-button'}
                     onClick={doSaveClose} leftSection={<FaCheck className="py-button-icon"/>}>                    
-                    <u style={{ width: '9px' }}>S</u>ave
+                    <u>S</u>ave
                 </Button>
             </div>
         </div>

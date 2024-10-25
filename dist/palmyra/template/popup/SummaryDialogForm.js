@@ -1,54 +1,56 @@
 import { jsx as t, Fragment as D, jsxs as i } from "react/jsx-runtime";
-import { forwardRef as K, useState as M, useRef as h, useImperativeHandle as O } from "react";
-import { useSaveForm as j } from "../hooks/useSaveForm.js";
-import { EditForm as k } from "./EditForm.js";
-import { NewForm as I } from "./NewForm.js";
-import { Modal as L, Button as v } from "@mantine/core";
-const _ = K((e, C) => {
-  const R = e.title, l = e.idKey || "id", [o, n] = M(void 0), b = h(0), s = e.gridRef, w = C || h();
-  O(w, () => ({ setData: n }), [s]);
-  const c = () => {
+import { forwardRef as I, useState as K, useRef as C, useImperativeHandle as M } from "react";
+import { useSaveForm as k } from "../hooks/useSaveForm.js";
+import { EditForm as O } from "./EditForm.js";
+import { NewForm as j } from "./NewForm.js";
+import { Modal as L, Button as h } from "@mantine/core";
+import { I as T } from "../../../chunks/index.js";
+import { F as V } from "../../../chunks/index2.js";
+const G = I((e, v) => {
+  const b = e.title, l = e.idKey || "id", [o, n] = K(void 0), p = C(0), c = e.gridRef, N = v || C();
+  M(N, () => ({ setData: n }), [c]);
+  const s = () => {
     n(void 0);
-  }, g = () => {
-    n(void 0), d();
-  }, d = () => {
-    b.current += 1, s.current.refresh();
-  }, p = (y) => {
+  }, R = () => {
+    n(void 0), a();
+  }, a = () => {
+    p.current += 1, c.current.refresh();
+  }, S = (y) => {
     console.log(y);
-  }, E = (y) => (c(), !1), {
-    doCancel: a,
-    doSaveClose: N,
+  }, g = (y) => (s(), !1), {
+    doCancel: d,
+    doSaveClose: w,
     handleKeyPress: r,
     setValid: m,
-    isValid: u,
-    formRef: f
-  } = j({ onCancel: c, onComplete: g, onFailure: p, onSave: d }), F = o != null, S = e.EditFormlet, x = e.NewFormlet;
+    isValid: f,
+    formRef: u
+  } = k({ onCancel: s, onComplete: R, onFailure: S, onSave: a }), F = o != null, E = e.EditFormlet, x = e.NewFormlet;
   return /* @__PURE__ */ t(D, { children: F && /* @__PURE__ */ i(
     L,
     {
       opened: F,
-      onClose: a,
+      onClose: d,
       onKeyDown: r,
-      title: R,
+      title: b,
       centered: !0,
       children: [
         o != null && o[l] ? /* @__PURE__ */ t(
-          k,
+          O,
           {
             setValid: m,
-            formRef: f,
-            onQueryFailure: E,
+            formRef: u,
+            onQueryFailure: g,
             handleKeyPress: r,
             options: e.options,
             ...e.options,
             id: o == null ? void 0 : o[l],
-            FORMLET: S
+            FORMLET: E
           }
         ) : /* @__PURE__ */ t(
-          I,
+          j,
           {
             setValid: m,
-            formRef: f,
+            formRef: u,
             handleKeyPress: r,
             options: e.options,
             ...e.options,
@@ -58,22 +60,24 @@ const _ = K((e, C) => {
         ),
         /* @__PURE__ */ i("div", { className: "py-drawer-form-btn-container", children: [
           /* @__PURE__ */ t(
-            v,
+            h,
             {
               className: "py-cancel-filled-button",
-              onClick: a,
+              onClick: d,
               tabIndex: -1,
+              leftSection: /* @__PURE__ */ t(T, { className: "py-button-icon" }),
               children: "Cancel"
             }
           ),
           /* @__PURE__ */ i(
-            v,
+            h,
             {
-              disabled: !u,
-              className: u ? "py-filled-button" : "py-disabled-button",
-              onClick: N,
+              disabled: !f,
+              className: f ? "py-filled-button" : "py-disabled-button",
+              onClick: w,
+              leftSection: /* @__PURE__ */ t(V, { className: "py-button-icon" }),
               children: [
-                /* @__PURE__ */ t("u", { style: { width: "5px" }, children: "S" }),
+                /* @__PURE__ */ t("u", { children: "S" }),
                 "ave"
               ]
             }
@@ -84,5 +88,5 @@ const _ = K((e, C) => {
   ) });
 });
 export {
-  _ as SummaryDialogForm
+  G as SummaryDialogForm
 };

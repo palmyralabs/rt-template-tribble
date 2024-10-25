@@ -63,13 +63,13 @@ function NewForm(props: IFormNewInput) {
                         <Button
                             className='py-cancel-filled-button'
                             onClick={() => window.history.back()}
-                            leftSection={<IoMdClose className="py-button-icon"/>}>                            
+                            leftSection={<IoMdClose className="py-button-icon" />}>
                             Cancel
                         </Button>
                         <Button disabled={!isValid}
                             className={!isValid ? 'py-disabled-button' : 'py-filled-button'}
-                            onClick={saveFormData} leftSection={<FaCheck className="py-button-icon"/>}>                            
-                            <u style={{ width: '9px' }}>S</u>ave
+                            onClick={saveFormData} leftSection={<FaCheck className="py-button-icon" />}>
+                            <u>S</u>ave
                         </Button>
                     </div>
                 </div>
