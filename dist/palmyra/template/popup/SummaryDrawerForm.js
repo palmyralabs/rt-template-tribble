@@ -1,58 +1,58 @@
-import { jsx as t, jsxs as i } from "react/jsx-runtime";
-import { forwardRef as D, useState as I, useRef as F, useImperativeHandle as k } from "react";
-import { useSaveForm as K } from "../hooks/useSaveForm.js";
-import { EditForm as M } from "./EditForm.js";
-import { NewForm as O } from "./NewForm.js";
-import { Drawer as j, Button as y } from "@mantine/core";
+import { jsx as t, jsxs as s } from "react/jsx-runtime";
+import { forwardRef as I, useState as k, useRef as y, useImperativeHandle as K } from "react";
+import { useSaveForm as M } from "../hooks/useSaveForm.js";
+import { EditForm as O } from "./EditForm.js";
+import { NewForm as T } from "./NewForm.js";
+import { Drawer as j, Button as h } from "@mantine/core";
 import { I as L } from "../../../chunks/index.js";
-import { F as T } from "../../../chunks/index2.js";
-const A = D((e, h) => {
-  const p = e.title, s = e.idKey || "id", [o, n] = I(void 0), v = F(0), c = e.gridRef, C = h || F();
-  k(C, () => ({ setData: n }), [c]);
-  const r = () => {
-    n(void 0);
-  }, b = () => {
-    n(void 0), l();
-  }, l = () => {
-    v.current += 1, c.current.refresh();
-  }, w = (u) => (r(), !1), N = (u) => {
-    console.log(u);
+import { F as V } from "../../../chunks/index2.js";
+const A = I((o, p) => {
+  const c = o.title, n = o.idKey || "id", [e, r] = k(void 0), v = y(0), l = o.gridRef, C = p || y();
+  K(C, () => ({ setData: r }), [l]);
+  const i = () => {
+    r(void 0);
+  }, w = () => {
+    r(void 0), a();
+  }, a = () => {
+    v.current += 1, l.current.refresh();
+  }, N = (F) => (i(), !1), b = (F) => {
+    console.log(F);
   }, {
     doCancel: R,
     doSaveClose: S,
-    handleKeyPress: a,
-    setValid: d,
-    isValid: m,
-    formRef: f
-  } = K({ onCancel: r, onComplete: b, onFailure: N, onSave: l }), E = o != null, g = e.EditFormlet, x = e.NewFormlet;
-  return /* @__PURE__ */ t(j, { position: "right", opened: E, onClose: r, title: p, children: /* @__PURE__ */ i("div", { className: "py-drawer-content-container", children: [
-    o != null && o[s] ? /* @__PURE__ */ t(
-      M,
+    handleKeyPress: d,
+    setValid: m,
+    isValid: f,
+    formRef: u
+  } = M({ onCancel: i, onComplete: w, onFailure: b, onSave: a }), E = e != null, g = o.EditFormlet, x = o.NewFormlet, D = e != null && e[n] ? `Edit ${c}` : `New ${c}`;
+  return /* @__PURE__ */ t(j, { position: "right", opened: E, onClose: i, title: D, children: /* @__PURE__ */ s("div", { className: "py-drawer-content-container", children: [
+    e != null && e[n] ? /* @__PURE__ */ t(
+      O,
       {
-        setValid: d,
-        formRef: f,
-        onQueryFailure: w,
-        handleKeyPress: a,
-        options: e.options,
-        ...e.options,
-        id: o == null ? void 0 : o[s],
+        setValid: m,
+        formRef: u,
+        onQueryFailure: N,
+        handleKeyPress: d,
+        options: o.options,
+        ...o.options,
+        id: e == null ? void 0 : e[n],
         FORMLET: g
       }
     ) : /* @__PURE__ */ t(
-      O,
+      T,
       {
-        setValid: d,
-        formRef: f,
-        handleKeyPress: a,
-        options: e.options,
-        ...e.options,
-        initialData: o,
+        setValid: m,
+        formRef: u,
+        handleKeyPress: d,
+        options: o.options,
+        ...o.options,
+        initialData: e,
         FORMLET: x
       }
     ),
-    /* @__PURE__ */ i("div", { className: "py-drawer-form-btn-container", children: [
+    /* @__PURE__ */ s("div", { className: "py-drawer-form-btn-container", children: [
       /* @__PURE__ */ t(
-        y,
+        h,
         {
           className: "py-cancel-filled-button",
           onClick: R,
@@ -61,13 +61,13 @@ const A = D((e, h) => {
           children: "Cancel"
         }
       ),
-      /* @__PURE__ */ i(
-        y,
+      /* @__PURE__ */ s(
+        h,
         {
-          disabled: !m,
-          className: m ? "py-filled-button" : "py-disabled-button",
+          disabled: !f,
+          className: f ? "py-filled-button" : "py-disabled-button",
           onClick: S,
-          leftSection: /* @__PURE__ */ t(T, { className: "py-button-icon" }),
+          leftSection: /* @__PURE__ */ t(V, { className: "py-button-icon" }),
           children: [
             /* @__PURE__ */ t("u", { children: "S" }),
             "ave"
