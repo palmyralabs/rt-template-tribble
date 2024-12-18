@@ -1,6 +1,9 @@
-import { jsx as e } from "react/jsx-runtime";
-import { AsyncTreeMenu as t } from "@palmyralabs/rt-forms";
-import '../../../assets/DynamicMenu.css';const o = ({ treeStore: r }) => /* @__PURE__ */ e("div", { style: { width: "100%" }, children: /* @__PURE__ */ e("div", { children: /* @__PURE__ */ e(t, { store: r }) }) });
+import { jsx as r } from "react/jsx-runtime";
+import { AsyncTreeMenu as n, SimpleIconProvider as t } from "@palmyralabs/rt-forms";
+import '../../../assets/DynamicMenu.css';const v = (e) => {
+  const { treeStore: o, iconProvider: i } = e;
+  return /* @__PURE__ */ r("div", { style: { width: "100%" }, children: /* @__PURE__ */ r("div", { children: /* @__PURE__ */ r(n, { store: o, iconProvider: i || t }) }) });
+};
 export {
-  o as default
+  v as default
 };
