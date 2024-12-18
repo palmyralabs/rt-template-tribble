@@ -3,6 +3,8 @@ import { FC } from "react";
 import './Sidebar.css';
 import { DynamicMenu } from "../../../src/main";
 import { PalmyraTreeStore } from "@palmyralabs/palmyra-wire";
+import { IconProvider } from '@palmyralabs/rt-forms';
+import { SimpleIconProvider } from "../../components/SimpleIconProvider";
 
 interface ISideMenuInput {
   sidebarWidth: boolean
@@ -23,7 +25,7 @@ const Sidebar = (props: SidebarInput) => {
     <div className="sidebar-header">
       Sidebar Header
     </div>
-    <DynamicMenu treeStore={treeStore} />
+    <DynamicMenu treeStore={treeStore} iconProvider={SimpleIconProvider} />
   </div>
 };
 
