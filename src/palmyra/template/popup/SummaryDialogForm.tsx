@@ -8,6 +8,7 @@ import { ErrorHandler } from "@palmyralabs/palmyra-wire";
 import { Button, Modal } from "@mantine/core";
 import { IoMdClose } from "react-icons/io";
 import { FaCheck } from "react-icons/fa";
+import { useDisclosure } from '@mantine/hooks';
 
 interface IDialogGridFormInput {
     options: IOptions,
@@ -26,6 +27,7 @@ interface IDialogForm {
 }
 
 const SummaryDialogForm = forwardRef((props: IDialogGridFormInput, ref: MutableRefObject<IDialogForm>) => {
+    const [opened, { open, close }] = useDisclosure(false);
     const title: any = props.title;
     const idKey = props.idKey || 'id';
     // const height = props.dialogHeight || 'auto';
@@ -44,11 +46,13 @@ const SummaryDialogForm = forwardRef((props: IDialogGridFormInput, ref: MutableR
 
     const onCancel = () => {
         setData(undefined)
+        close();
     }
 
     const onComplete = () => {
         setData(undefined)
         onSave();
+        close();
     }
 
     const onSave = () => {
@@ -63,39 +67,39 @@ const SummaryDialogForm = forwardRef((props: IDialogGridFormInput, ref: MutableR
         onCancel();
         return false;
     }
-
+    if (data !== undefined && !opened) {
+        open();
+    }
     const { doCancel, doSaveClose, handleKeyPress,
         setValid, isValid, formRef } = useSaveForm({ onCancel, onComplete, onFailure: handleError, onSave });
 
-    const dialogOpen: boolean = data != undefined;
     const EditFormlet = props.EditFormlet;
     const NewFormlet = props.NewFormlet;
     const formTitle = (!data?.[idKey]) ? `New ${title}` : `Edit ${title}`;
     return (<>
-        {dialogOpen &&
-            <Modal opened={dialogOpen} onClose={doCancel} onKeyDown={handleKeyPress} title={formTitle}
-                centered>
-                {data?.[idKey] ?
-                    <EditForm setValid={setValid} formRef={formRef} onQueryFailure={onQueryFailure}
-                        handleKeyPress={handleKeyPress} options={props.options}
-                        {...props.options} id={data?.[idKey]} FORMLET={EditFormlet} />
-                    : <NewForm setValid={setValid} formRef={formRef}
-                        handleKeyPress={handleKeyPress} options={props.options}
-                        {...props.options} initialData={data} FORMLET={NewFormlet} />}
-                <div className="py-drawer-form-btn-container">
-                    <Button
-                        className='py-cancel-filled-button'
-                        onClick={doCancel} tabIndex={-1}
-                        leftSection={<IoMdClose className="py-button-icon"/>}>
-                        Cancel
-                    </Button>
-                    <Button disabled={!isValid}
-                        className={!isValid ? 'py-disabled-button' : 'py-filled-button'}
-                        onClick={doSaveClose} leftSection={<FaCheck className="py-button-icon"/>}>
-                        <u>S</u>ave
-                    </Button>
-                </div>
-            </Modal>}
+        <Modal opened={opened} onClose={doCancel} onKeyDown={handleKeyPress} title={formTitle}
+            centered >
+            {data?.[idKey] ?
+                <EditForm setValid={setValid} formRef={formRef} onQueryFailure={onQueryFailure}
+                    handleKeyPress={handleKeyPress} options={props.options}
+                    {...props.options} id={data?.[idKey]} FORMLET={EditFormlet} />
+                : <NewForm setValid={setValid} formRef={formRef}
+                    handleKeyPress={handleKeyPress} options={props.options}
+                    {...props.options} initialData={data} FORMLET={NewFormlet} />}
+            <div className="py-drawer-form-btn-container">
+                <Button
+                    className='py-cancel-filled-button'
+                    onClick={doCancel} tabIndex={-1}
+                    leftSection={<IoMdClose className="py-button-icon" />}>
+                    Cancel
+                </Button>
+                <Button disabled={!isValid}
+                    className={!isValid ? 'py-disabled-button' : 'py-filled-button'}
+                    onClick={doSaveClose} leftSection={<FaCheck className="py-button-icon" />}>
+                    <u>S</u>ave
+                </Button>
+            </div>
+        </Modal>
     </>
     );
 });
