@@ -27,6 +27,8 @@ interface IDrawerForm {
 
 const SummaryDrawerForm = forwardRef((props: IDialogGridFormInput, ref: MutableRefObject<IDrawerForm>) => {
     const title: any = props.title;
+    const editTitle: any = typeof title === "string" ? `Edit ${title}` : title?.edit;
+    const newTitle: any = typeof title === "string" ? `New ${title}` : title?.new;
     const idKey = props.idKey || 'id';
     // const drawerWidth = props.dialogWidth || '600px';
 
@@ -69,7 +71,7 @@ const SummaryDrawerForm = forwardRef((props: IDialogGridFormInput, ref: MutableR
     const drawerOpen: boolean = data != undefined;
     const EditFormlet = props.EditFormlet;
     const NewFormlet = props.NewFormlet;
-    const formTitle = (!data?.[idKey]) ? `New ${title}` : `Edit ${title}`;
+    const formTitle = (!data?.[idKey]) ? newTitle : editTitle;
     return (<Drawer position="right" opened={drawerOpen} onClose={onCancel} title={formTitle}>
         <div className="py-drawer-content-container">
             {data?.[idKey] ?

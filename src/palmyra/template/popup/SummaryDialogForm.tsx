@@ -15,7 +15,11 @@ interface IDialogGridFormInput {
     EditFormlet: FC,
     NewFormlet: FC,
     gridRef: any,
-    title?: any,
+    title?: string | {
+        grid?: string;
+        new?: string;
+        edit?: string;
+    };
     idKey?: string,
     dialogHeight?: string,
     dialogWidth?: string,
@@ -28,7 +32,9 @@ interface IDialogForm {
 
 const SummaryDialogForm = forwardRef((props: IDialogGridFormInput, ref: MutableRefObject<IDialogForm>) => {
     const [opened, { open, close }] = useDisclosure(false);
-    const title: any = props.title;
+    const title = props.title
+    const editTitle: any = typeof title === "string" ? `Edit ${title}` : title?.edit;
+    const newTitle: any = typeof title === "string" ? `New ${title}` : title?.new;
     const idKey = props.idKey || 'id';
     // const height = props.dialogHeight || 'auto';
     // const width = props.dialogWidth || 'auto';
@@ -75,7 +81,7 @@ const SummaryDialogForm = forwardRef((props: IDialogGridFormInput, ref: MutableR
 
     const EditFormlet = props.EditFormlet;
     const NewFormlet = props.NewFormlet;
-    const formTitle = (!data?.[idKey]) ? `New ${title}` : `Edit ${title}`;
+    const formTitle = (!data?.[idKey]) ? newTitle : editTitle;
     return (<>
         <Modal opened={opened} onClose={doCancel} onKeyDown={handleKeyPress} title={formTitle}
             centered >

@@ -22,8 +22,10 @@ function SummaryPopupGrid(props: IPopupGridInput) {
     const viewTopic = props.pageName + "/viewPage";
     const newTopic = props.pageName + "/newPage";
     const refreshTopic = props.pageName + "/refresh";
-    const title: any = props.title;
     const popup = props.popup || 'drawer';
+
+    const title: any = props.title;
+    const gridTitle = typeof title === "string" ? title : title?.grid;
 
     const dialogFormRef: any = useRef<IDialogForm>();
     const gridRef: any = props.gridRef || useRef(null);
@@ -64,7 +66,7 @@ function SummaryPopupGrid(props: IPopupGridInput) {
     const rowClick = !props.disableRowClick ? handleRowClick : () => { }
 
     return (<div className="py-grid-container">
-        <PalmyraGrid title={title} columns={props.columns} DataGridControlProps={{ setFormData: setData }}
+        <PalmyraGrid title={gridTitle} columns={props.columns} DataGridControlProps={{ setFormData: setData }}
             DataGridControls={DataGridControls} onRowClick={rowClick} defaultParams={props.defaultParams}
             endPoint={props.options.endPoint} endPointOptions={props.options.endPointOptions}
             pageSize={props.pageSize} {...props.options} getPluginOptions={props.getPluginOptions}

@@ -3,7 +3,11 @@ import { ColumnDefinition, DataGridPluginOptions, GridCustomizer, IExportOptions
 import { FC } from "react"
 
 interface IPageInput {
-    title?: string,
+    title?: string | {
+        grid?: string;
+        new?: string;
+        edit?: string;
+    };
     pageName: string,
     errorText?: any
 }
