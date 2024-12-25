@@ -19,6 +19,10 @@ interface IDialogGridFormInput {
     dialogHeight?: string,
     dialogWidth?: string,
     dialogMinWidth?: string
+    customDataSection?: {
+        new?: any
+        edit?: any
+    }
 }
 
 interface IDrawerForm {
@@ -72,13 +76,16 @@ const SummaryDrawerForm = forwardRef((props: IDialogGridFormInput, ref: MutableR
     const EditFormlet = props.EditFormlet;
     const NewFormlet = props.NewFormlet;
     const formTitle = (!data?.[idKey]) ? newTitle : editTitle;
+
+    const newCustomData = props.customDataSection?.new || ''
+    const editCustomData = props.customDataSection?.edit || ''
     return (<Drawer position="right" opened={drawerOpen} onClose={onCancel} title={formTitle}>
         <div className="py-drawer-content-container">
             {data?.[idKey] ?
                 <EditForm setValid={setValid} formRef={formRef} onQueryFailure={onQueryFailure}
-                    handleKeyPress={handleKeyPress} options={props.options}
+                    handleKeyPress={handleKeyPress} options={props.options} customDataSection={editCustomData}
                     {...props.options} id={data?.[idKey]} FORMLET={EditFormlet} />
-                : <NewForm setValid={setValid} formRef={formRef}
+                : <NewForm setValid={setValid} formRef={formRef} customDataSection={newCustomData}
                     handleKeyPress={handleKeyPress} options={props.options}
                     {...props.options} initialData={data} FORMLET={NewFormlet} />}
             <div className="py-drawer-form-btn-container">

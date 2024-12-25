@@ -10,6 +10,7 @@ interface IFormInput {
     handleKeyPress: (event: any) => void,
     setValid: (s: any) => void,
     formRef: MutableRefObject<ISaveForm>
+    customDataSection?: any
 }
 
 function NewForm(props: IFormInput) {
@@ -19,6 +20,7 @@ function NewForm(props: IFormInput) {
     const Children = props.FORMLET;
     return (
         <form onKeyDown={handleKeyPress}>
+            {props.customDataSection}
             <PalmyraNewForm onValidChange={setValid} ref={formRef} storeFactory={storeFactory}
                 {...props.options} initialData={initialData}>
                 <Children />

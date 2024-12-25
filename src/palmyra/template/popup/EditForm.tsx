@@ -8,10 +8,11 @@ interface IFormInput {
     options: IOptions,
     id: string,
     FORMLET: FC,
-    onQueryFailure:ErrorHandler,
+    onQueryFailure: ErrorHandler,
     handleKeyPress: (event: any) => void,
     setValid: (s: any) => void,
     formRef: MutableRefObject<ISaveForm>
+    customDataSection?: any
 }
 
 function EditForm(props: IFormInput) {
@@ -21,6 +22,7 @@ function EditForm(props: IFormInput) {
     const Children = props.FORMLET;
     return (
         <form onKeyDown={handleKeyPress}>
+            {props.customDataSection}
             <PalmyraEditForm onValidChange={setValid} ref={formRef} storeFactory={storeFactory}
                 {...props.options} id={id} onQueryFailure={props.onQueryFailure}>
                 <Children />
