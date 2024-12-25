@@ -2,12 +2,15 @@ import { IEndPoint, IEndPointOptions } from "@palmyralabs/palmyra-wire"
 import { ColumnDefinition, DataGridPluginOptions, GridCustomizer, IExportOptions } from "@palmyralabs/rt-forms"
 import { FC } from "react"
 
+type ITitle = string | {
+    grid?: string;
+    new?: string;
+    edit?: string;
+    view?: string;
+};
+
 interface IPageInput {
-    title?: string | {
-        grid?: string;
-        new?: string;
-        edit?: string;
-    };
+    title?: ITitle,
     pageName: string,
     errorText?: any
 }
@@ -82,6 +85,6 @@ interface PopupGridPluginOptions extends DataGridPluginOptions {
 }
 
 export type {
-    IPageInput, IFormEditInput, IFormNewInput, IFormViewInput,
+    IPageInput, IFormEditInput, IFormNewInput, IFormViewInput,ITitle,
     ISummaryGridInput, IFormInput, IOptions, SummaryGridPluginOptions, PopupGridPluginOptions
 }

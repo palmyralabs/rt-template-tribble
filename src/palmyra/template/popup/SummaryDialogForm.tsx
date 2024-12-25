@@ -9,6 +9,7 @@ import { Button, Modal } from "@mantine/core";
 import { IoMdClose } from "react-icons/io";
 import { FaCheck } from "react-icons/fa";
 import { useDisclosure } from '@mantine/hooks';
+import { getTitle } from "../util/TitleUtil";
 
 interface IDialogGridFormInput {
     options: IOptions,
@@ -36,9 +37,6 @@ interface IDialogForm {
 
 const SummaryDialogForm = forwardRef((props: IDialogGridFormInput, ref: MutableRefObject<IDialogForm>) => {
     const [opened, { open, close }] = useDisclosure(false);
-    const title = props.title
-    const editTitle: any = typeof title === "string" ? `Edit ${title}` : title?.edit;
-    const newTitle: any = typeof title === "string" ? `New ${title}` : title?.new;
     const idKey = props.idKey || 'id';
     // const height = props.dialogHeight || 'auto';
     // const width = props.dialogWidth || 'auto';
@@ -85,7 +83,7 @@ const SummaryDialogForm = forwardRef((props: IDialogGridFormInput, ref: MutableR
 
     const EditFormlet = props.EditFormlet;
     const NewFormlet = props.NewFormlet;
-    const formTitle = (!data?.[idKey]) ? newTitle : editTitle;
+    const formTitle = (!data?.[idKey]) ? getTitle(props.title, 'new') : getTitle(props.title, 'edit');
 
     const newCustomData = props.customDataSection?.new || ''
     const editCustomData = props.customDataSection?.edit || ''

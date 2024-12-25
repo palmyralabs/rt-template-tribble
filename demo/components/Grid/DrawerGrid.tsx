@@ -61,7 +61,9 @@ function DrawerGrid(props: any) {
         <SummaryPopupGrid NewFormlet={Formlet} EditFormlet={Formlet}
             getPluginOptions={getPluginOptions} DataGridControls={CustomControl}
             columns={fields} quickSearch="name"
-            pageName={props.pageName} title={"Summary Popup Grid"}
+            pageName={props.pageName} title={{grid:"SummaryDrawer Grid", edit:"Edit Drawer Grid", 
+                new:'New Drawer Grid', view:'View Drawer Grid'
+            }}
             options={{ endPoint }} /></div>
     );
 }

@@ -6,6 +6,7 @@ import { ISaveForm, PalmyraNewForm } from "@palmyralabs/rt-forms";
 import { Button } from "@mantine/core";
 import { IoMdClose } from "react-icons/io";
 import { FaCheck } from "react-icons/fa";
+import { getTitle } from "../util/TitleUtil";
 
 
 function NewForm(props: IFormNewInput) {
@@ -58,7 +59,7 @@ function NewForm(props: IFormNewInput) {
         <div className='py-form-container'>
             <form onKeyDown={handleKeyPress}>
                 <div className='py-form-header-container'>
-                    <div>{props.title}</div>
+                    <div>{getTitle(props.title, 'new')}</div>
                     <div className="py-form-header-button-container">
                         <Button
                             className='py-cancel-filled-button'

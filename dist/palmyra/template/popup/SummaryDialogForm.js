@@ -1,84 +1,88 @@
-import { jsx as t, Fragment as M, jsxs as l } from "react/jsx-runtime";
-import { forwardRef as k, useState as T, useRef as p, useImperativeHandle as j } from "react";
-import { useSaveForm as L } from "../hooks/useSaveForm.js";
-import { EditForm as O } from "./EditForm.js";
-import { NewForm as V } from "./NewForm.js";
-import { Modal as $, Button as v } from "@mantine/core";
-import { I as B } from "../../../chunks/index.js";
-import { F as H } from "../../../chunks/index2.js";
-import { useDisclosure as P } from "@mantine/hooks";
-const X = k((o, b) => {
-  const [s, { open: N, close: c }] = P(!1), m = o.title, n = o.idKey || "id", [e, r] = T(void 0), R = p(0), a = o.gridRef, S = b || p();
-  j(S, () => ({ setData: r }), [a]);
-  const d = () => {
-    r(void 0), c();
-  }, w = () => {
-    r(void 0), f(), c();
-  }, f = () => {
+import { jsx as t, Fragment as L, jsxs as c } from "react/jsx-runtime";
+import { forwardRef as O, useState as V, useRef as h, useImperativeHandle as B } from "react";
+import { useSaveForm as H } from "../hooks/useSaveForm.js";
+import { EditForm as P } from "./EditForm.js";
+import { NewForm as Q } from "./NewForm.js";
+import { Modal as _, Button as v } from "@mantine/core";
+import { I as q } from "../../../chunks/index.js";
+import { F as z } from "../../../chunks/index2.js";
+import { useDisclosure as A } from "@mantine/hooks";
+import { getTitle as b } from "../util/TitleUtil.js";
+const te = O((e, w) => {
+  var y, S;
+  const [s, { open: N, close: l }] = A(!1), n = e.idKey || "id", [o, i] = V(void 0), R = h(0), a = e.gridRef, g = w || h();
+  B(g, () => ({ setData: i }), [a]);
+  const m = () => {
+    i(void 0), l();
+  }, E = () => {
+    i(void 0), d(), l();
+  }, d = () => {
     R.current += 1, a.current.refresh();
-  }, E = (h) => {
-    console.log(h);
-  }, g = (h) => (d(), !1);
-  e !== void 0 && !s && N();
+  }, p = (D) => {
+    console.log(D);
+  }, x = (D) => (m(), !1);
+  o !== void 0 && !s && N();
   const {
     doCancel: u,
-    doSaveClose: D,
-    handleKeyPress: i,
-    setValid: F,
-    isValid: y,
+    doSaveClose: I,
+    handleKeyPress: r,
+    setValid: f,
+    isValid: F,
     formRef: C
-  } = L({ onCancel: d, onComplete: w, onFailure: E, onSave: f }), x = o.EditFormlet, I = o.NewFormlet, K = e != null && e[n] ? `Edit ${m}` : `New ${m}`;
-  return /* @__PURE__ */ t(M, { children: /* @__PURE__ */ l(
-    $,
+  } = H({ onCancel: m, onComplete: E, onFailure: p, onSave: d }), K = e.EditFormlet, M = e.NewFormlet, T = o != null && o[n] ? b(e.title, "edit") : b(e.title, "new"), k = ((y = e.customDataSection) == null ? void 0 : y.new) || "", j = ((S = e.customDataSection) == null ? void 0 : S.edit) || "";
+  return /* @__PURE__ */ t(L, { children: /* @__PURE__ */ c(
+    _,
     {
       opened: s,
       onClose: u,
-      onKeyDown: i,
-      title: K,
+      onKeyDown: r,
+      title: T,
       centered: !0,
       children: [
-        e != null && e[n] ? /* @__PURE__ */ t(
-          O,
+        o != null && o[n] ? /* @__PURE__ */ t(
+          P,
           {
-            setValid: F,
+            setValid: f,
             formRef: C,
-            onQueryFailure: g,
-            handleKeyPress: i,
-            options: o.options,
-            ...o.options,
-            id: e == null ? void 0 : e[n],
-            FORMLET: x
+            onQueryFailure: x,
+            handleKeyPress: r,
+            options: e.options,
+            customDataSection: j,
+            ...e.options,
+            id: o == null ? void 0 : o[n],
+            FORMLET: K
           }
         ) : /* @__PURE__ */ t(
-          V,
+          Q,
           {
-            setValid: F,
+            setValid: f,
             formRef: C,
-            handleKeyPress: i,
-            options: o.options,
-            ...o.options,
-            initialData: e,
-            FORMLET: I
+            customDataSection: k,
+            handleKeyPress: r,
+            options: e.options,
+            ...e.options,
+            initialData: o,
+            FORMLET: M
           }
         ),
-        /* @__PURE__ */ l("div", { className: "py-drawer-form-btn-container", children: [
+        /* @__PURE__ */ c("div", { className: "py-drawer-form-btn-container", children: [
           /* @__PURE__ */ t(
             v,
             {
               className: "py-cancel-filled-button",
               onClick: u,
               tabIndex: -1,
-              leftSection: /* @__PURE__ */ t(B, { className: "py-button-icon" }),
+              leftSection: /* @__PURE__ */ t(q, { className: "py-button-icon" }),
               children: "Cancel"
             }
           ),
-          /* @__PURE__ */ l(
+          /* @__PURE__ */ c(
             v,
             {
-              disabled: !y,
-              className: y ? "py-filled-button" : "py-disabled-button",
-              onClick: D,
-              leftSection: /* @__PURE__ */ t(H, { className: "py-button-icon" }),
+              disabled: !F,
+              className: F ? "py-filled-button" : "py-disabled-button",
+              onClick: I,
+              leftSection: /* @__PURE__ */ t(z, { className: "py-button-icon" }),
               children: [
                 /* @__PURE__ */ t("u", { children: "S" }),
                 "ave"
@@ -91,5 +95,5 @@ const X = k((o, b) => {
   ) });
 });
 export {
-  X as SummaryDialogForm
+  te as SummaryDialogForm
 };

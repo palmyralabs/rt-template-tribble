@@ -8,6 +8,7 @@ import { ErrorHandler } from "@palmyralabs/palmyra-wire";
 import { Button, Drawer } from "@mantine/core";
 import { IoMdClose } from "react-icons/io";
 import { FaCheck } from "react-icons/fa";
+import { getTitle } from "../util/TitleUtil";
 
 interface IDialogGridFormInput {
     options: IOptions,
@@ -30,9 +31,7 @@ interface IDrawerForm {
 }
 
 const SummaryDrawerForm = forwardRef((props: IDialogGridFormInput, ref: MutableRefObject<IDrawerForm>) => {
-    const title: any = props.title;
-    const editTitle: any = typeof title === "string" ? `Edit ${title}` : title?.edit;
-    const newTitle: any = typeof title === "string" ? `New ${title}` : title?.new;
+
     const idKey = props.idKey || 'id';
     // const drawerWidth = props.dialogWidth || '600px';
 
@@ -75,7 +74,7 @@ const SummaryDrawerForm = forwardRef((props: IDialogGridFormInput, ref: MutableR
     const drawerOpen: boolean = data != undefined;
     const EditFormlet = props.EditFormlet;
     const NewFormlet = props.NewFormlet;
-    const formTitle = (!data?.[idKey]) ? newTitle : editTitle;
+    const formTitle = (!data?.[idKey]) ? getTitle(props.title, 'new') : getTitle(props.title, 'edit');
 
     const newCustomData = props.customDataSection?.new || ''
     const editCustomData = props.customDataSection?.edit || ''

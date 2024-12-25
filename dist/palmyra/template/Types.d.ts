@@ -1,8 +1,14 @@
 import { IEndPoint, IEndPointOptions } from '@palmyralabs/palmyra-wire';
 import { ColumnDefinition, DataGridPluginOptions, GridCustomizer, IExportOptions } from '@palmyralabs/rt-forms';
 import { FC } from 'react';
+type ITitle = string | {
+    grid?: string;
+    new?: string;
+    edit?: string;
+    view?: string;
+};
 interface IPageInput {
-    title?: string;
+    title?: ITitle;
     pageName: string;
     errorText?: any;
 }
@@ -65,4 +71,4 @@ interface SummaryGridPluginOptions extends DataGridPluginOptions {
 interface PopupGridPluginOptions extends DataGridPluginOptions {
     setFormData: (d: any) => void;
 }
-export type { IPageInput, IFormEditInput, IFormNewInput, IFormViewInput, ISummaryGridInput, IFormInput, IOptions, SummaryGridPluginOptions, PopupGridPluginOptions };
+export type { IPageInput, IFormEditInput, IFormNewInput, IFormViewInput, ITitle, ISummaryGridInput, IFormInput, IOptions, SummaryGridPluginOptions, PopupGridPluginOptions };

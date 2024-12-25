@@ -10,6 +10,10 @@ interface IDialogGridFormInput {
     dialogHeight?: string;
     dialogWidth?: string;
     dialogMinWidth?: string;
+    customDataSection?: {
+        new?: any;
+        edit?: any;
+    };
 }
 interface IDrawerForm {
     setData: (d: any) => void;

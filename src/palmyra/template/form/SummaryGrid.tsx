@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { StringFormat } from "@palmyralabs/ts-utils";
 import '../../template/Layout.css';
 import { PalmyraGrid } from "@palmyralabs/rt-forms-mantine";
+import { getTitle } from "../util/TitleUtil";
 
 interface IGridInput extends ISummaryGridInput {
     gridRef?: any,
@@ -31,7 +32,7 @@ function SummaryGrid(props: IGridInput) {
 
     return (
         <div className="py-grid-container">
-            <PalmyraGrid title={props.title} columns={props.columns}
+            <PalmyraGrid title={getTitle(props.title, 'grid')} columns={props.columns}
                 getPluginOptions={props.getPluginOptions} defaultParams={props.defaultParams}
                 DataGridControls={DataGridControls} DataGridControlProps={{ newRecord }}
                 endPoint={props.options.endPoint} endPointOptions={props.options.endPointOptions}

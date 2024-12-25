@@ -4,8 +4,16 @@ interface IDialogGridFormInput {
     options: IOptions;
     EditFormlet: FC;
     NewFormlet: FC;
+    customDataSection?: {
+        new?: any;
+        edit?: any;
+    };
     gridRef: any;
-    title?: any;
+    title?: string | {
+        grid?: string;
+        new?: string;
+        edit?: string;
+    };
     idKey?: string;
     dialogHeight?: string;
     dialogWidth?: string;

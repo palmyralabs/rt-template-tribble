@@ -7,6 +7,10 @@ interface IPopupGridInput extends ISummaryGridInput {
     width?: any;
     height?: string;
     minWidth?: string;
+    customDataSection?: {
+        new?: any;
+        edit?: any;
+    };
     popup?: 'dialog' | 'drawer';
 }
 declare function SummaryPopupGrid(props: IPopupGridInput): import("react/jsx-runtime").JSX.Element;

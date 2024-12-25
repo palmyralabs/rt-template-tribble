@@ -4,6 +4,7 @@ import { PalmyraViewForm } from '@palmyralabs/rt-forms';
 import { Button } from "@mantine/core";
 import { IoIosArrowBack } from "react-icons/io";
 import { RiEdit2Fill } from "react-icons/ri";
+import { getTitle } from "../util/TitleUtil";
 
 
 function ViewForm(props: IFormViewInput) {
@@ -22,7 +23,7 @@ function ViewForm(props: IFormViewInput) {
     return (
         <div className='py-form-container'>
             <div className='py-form-header-container'>
-                <div>{props.title}</div>
+                <div>{getTitle(props.title, 'view')}</div>
                 <div className="py-form-header-button-container">
                     <Button onClick={goToGrid}
                         className='py-filled-button'

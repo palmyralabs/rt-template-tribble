@@ -8,6 +8,7 @@ interface IFormInput {
     handleKeyPress: (event: any) => void;
     setValid: (s: any) => void;
     formRef: MutableRefObject<ISaveForm>;
+    customDataSection?: any;
 }
 declare function NewForm(props: IFormInput): import("react/jsx-runtime").JSX.Element;
 export { NewForm };

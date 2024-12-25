@@ -6,6 +6,7 @@ import { ISaveForm, PalmyraEditForm } from "@palmyralabs/rt-forms";
 import { Button } from "@mantine/core";
 import { FaCheck } from "react-icons/fa";
 import { IoMdClose } from "react-icons/io";
+import { getTitle } from "../util/TitleUtil";
 
 
 function SaveForm(props: IFormEditInput) {
@@ -51,7 +52,7 @@ function SaveForm(props: IFormEditInput) {
         <div className='py-form-container'>
             <form onKeyDown={handleKeyPress}>
                 <div className='py-form-header-container'>
-                    <div>{props.title}</div>
+                    <div>{getTitle(props.title, 'edit')}</div>
                     <div className="py-form-header-button-container">
                         <Button
                             className='py-cancel-filled-button'

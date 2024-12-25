@@ -7,6 +7,7 @@ import { IDialogForm, SummaryDialogForm } from "./SummaryDialogForm";
 import { SummaryDrawerForm } from "./SummaryDrawerForm";
 import { PopupGridControls } from "./PopupGridControls";
 import '../../template/Layout.css';
+import { getTitle } from "../util/TitleUtil";
 
 interface IPopupGridInput extends ISummaryGridInput {
     EditFormlet: FC,
@@ -27,9 +28,6 @@ function SummaryPopupGrid(props: IPopupGridInput) {
     const newTopic = props.pageName + "/newPage";
     const refreshTopic = props.pageName + "/refresh";
     const popup = props.popup || 'drawer';
-
-    const title: any = props.title;
-    const gridTitle = typeof title === "string" ? title : title?.grid;
 
     const dialogFormRef: any = useRef<IDialogForm>();
     const gridRef: any = props.gridRef || useRef(null);
@@ -70,7 +68,7 @@ function SummaryPopupGrid(props: IPopupGridInput) {
     const rowClick = !props.disableRowClick ? handleRowClick : () => { }
 
     return (<div className="py-grid-container">
-        <PalmyraGrid title={gridTitle} columns={props.columns} DataGridControlProps={{ setFormData: setData }}
+        <PalmyraGrid title={getTitle(props.title, 'grid')} columns={props.columns} DataGridControlProps={{ setFormData: setData }}
             DataGridControls={DataGridControls} onRowClick={rowClick} defaultParams={props.defaultParams}
             endPoint={props.options.endPoint} endPointOptions={props.options.endPointOptions}
             pageSize={props.pageSize} {...props.options} getPluginOptions={props.getPluginOptions}
