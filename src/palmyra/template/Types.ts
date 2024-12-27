@@ -1,5 +1,5 @@
 import { IEndPoint, IEndPointOptions } from "@palmyralabs/palmyra-wire"
-import { ColumnDefinition, DataGridPluginOptions, GridCustomizer, IExportOptions } from "@palmyralabs/rt-forms"
+import { DataGridPluginOptions, IExportOptions, PalmyraGridOptions } from "@palmyralabs/rt-forms"
 import { FC } from "react"
 
 type ITitle = string | {
@@ -57,16 +57,17 @@ interface IFormViewInput extends IPageInput, IFormInput {
 }
 
 interface IGridInput {
-    customizer?: GridCustomizer,
+    customizer?: PalmyraGridOptions<any>['customizer'],
     quickSearch?: string,
     options: IOptions & queryOptions,
-    columns: ColumnDefinition[],
-    pageSize?: number[],
+    columns: PalmyraGridOptions<any>['columns'],
+    pageSize?: PalmyraGridOptions<any>['pageSize'],
+    pagination?: PalmyraGridOptions<any>['pagination']
     exportOptions?: IExportOptions,
-    defaultParams?: any,
+    defaultParams?: PalmyraGridOptions<any>['defaultParams'],
     Child?: FC,
     childProps?: Record<any, any>,
-    getPluginOptions?: () => any;
+    getPluginOptions?: PalmyraGridOptions<any>['getPluginOptions'];
     DataGridControls?: (props: DataGridPluginOptions) => JSX.Element;
 }
 
