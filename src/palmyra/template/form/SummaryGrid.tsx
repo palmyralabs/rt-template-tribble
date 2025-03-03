@@ -37,7 +37,7 @@ function SummaryGrid(props: IGridInput) {
                 getPluginOptions={props.getPluginOptions} defaultParams={props.defaultParams}
                 DataGridControls={DataGridControls} DataGridControlProps={{ newRecord }}
                 endPoint={props.options.endPoint} endPointOptions={props.options.endPointOptions}
-                onRowClick={rowClick}  {...props.options}
+                onRowClick={rowClick}  {...props.options} onDataChange={props.onDataChange}
                 ref={gridRef} customizer={props.customizer} quickSearch={props.quickSearch} />
         </div>
     );
