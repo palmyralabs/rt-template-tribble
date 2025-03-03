@@ -1,21 +1,21 @@
 import { jsx as n } from "react/jsx-runtime";
-import { useRef as s } from "react";
-import { SummaryGridControls as u } from "./SummaryGridControls.js";
+import { useRef as u } from "react";
+import { SummaryGridControls as s } from "./SummaryGridControls.js";
 import { useNavigate as f } from "react-router-dom";
-import { StringFormat as P } from "@palmyralabs/ts-utils";
+import { StringFormat as C } from "@palmyralabs/ts-utils";
 import '../../../assets/Layout.css';/* empty css                     */
-import { PalmyraGrid as C } from "@palmyralabs/rt-forms-mantine";
+import { PalmyraGrid as P } from "@palmyralabs/rt-forms-mantine";
 import { getTitle as k } from "../util/TitleUtil.js";
-function O(i) {
-  const t = f(), o = i.idKey || "id", e = i.gridRef || s(null), a = (m) => {
+function z(i) {
+  const t = f(), o = i.idKey || "id", e = i.gridRef || u(null), a = (m) => {
     const l = { id: m[o] }, g = i.clickTo || "view";
-    t(P(g + "/{id}", l));
+    t(C(g + "/{id}", l));
   }, r = () => {
     t("new");
-  }, c = i.DataGridControls || u, d = i.disableRowClick ? () => {
+  }, c = i.DataGridControls || s, d = i.disableRowClick ? () => {
   } : a;
   return /* @__PURE__ */ n("div", { className: "py-grid-container", children: /* @__PURE__ */ n(
-    C,
+    P,
     {
       title: k(i.title, "grid"),
       columns: i.columns,
@@ -29,6 +29,7 @@ function O(i) {
       endPointOptions: i.options.endPointOptions,
       onRowClick: d,
       ...i.options,
+      onDataChange: i.onDataChange,
       ref: e,
       customizer: i.customizer,
       quickSearch: i.quickSearch
@@ -36,5 +37,5 @@ function O(i) {
   ) });
 }
 export {
-  O as SummaryGrid
+  z as SummaryGrid
 };

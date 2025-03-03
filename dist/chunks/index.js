@@ -1,11 +1,11 @@
 import a from "react";
-var g = {
+var p = {
   color: void 0,
   size: void 0,
   className: void 0,
   style: void 0,
   attr: void 0
-}, f = a.createContext && /* @__PURE__ */ a.createContext(g), d = ["attr", "size", "title"];
+}, f = a.createContext && /* @__PURE__ */ a.createContext(p), g = ["attr", "size", "title"];
 function O(t, e) {
   if (t == null) return {};
   var r = y(t, e), n, i;
@@ -68,21 +68,21 @@ function j(t, e) {
   if (typeof t != "object" || !t) return t;
   var r = t[Symbol.toPrimitive];
   if (r !== void 0) {
-    var n = r.call(t, e || "default");
+    var n = r.call(t, e);
     if (typeof n != "object") return n;
     throw new TypeError("@@toPrimitive must return a primitive value.");
   }
   return (e === "string" ? String : Number)(t);
 }
-function p(t) {
+function b(t) {
   return t && t.map((e, r) => /* @__PURE__ */ a.createElement(e.tag, u({
     key: r
-  }, e.attr), p(e.child)));
+  }, e.attr), b(e.child)));
 }
 function v(t) {
   return (e) => /* @__PURE__ */ a.createElement(P, l({
     attr: u({}, t.attr)
-  }, e), p(t.child));
+  }, e), b(t.child));
 }
 function P(t) {
   var e = (r) => {
@@ -90,12 +90,12 @@ function P(t) {
       attr: n,
       size: i,
       title: o
-    } = t, b = O(t, d), s = i || r.size || "1em", c;
+    } = t, d = O(t, g), s = i || r.size || "1em", c;
     return r.className && (c = r.className), t.className && (c = (c ? c + " " : "") + t.className), /* @__PURE__ */ a.createElement("svg", l({
       stroke: "currentColor",
       fill: "currentColor",
       strokeWidth: "0"
-    }, r.attr, n, b, {
+    }, r.attr, n, d, {
       className: c,
       style: u(u({
         color: t.color || r.color
@@ -105,13 +105,13 @@ function P(t) {
       xmlns: "http://www.w3.org/2000/svg"
     }), o && /* @__PURE__ */ a.createElement("title", null, o), t.children);
   };
-  return f !== void 0 ? /* @__PURE__ */ a.createElement(f.Consumer, null, (r) => e(r)) : e(g);
+  return f !== void 0 ? /* @__PURE__ */ a.createElement(f.Consumer, null, (r) => e(r)) : e(p);
 }
 function E(t) {
-  return v({ tag: "svg", attr: { viewBox: "0 0 512 512" }, child: [{ tag: "path", attr: { d: "M217.9 256L345 129c9.4-9.4 9.4-24.6 0-33.9-9.4-9.4-24.6-9.3-34 0L167 239c-9.1 9.1-9.3 23.7-.7 33.1L310.9 417c4.7 4.7 10.9 7 17 7s12.3-2.3 17-7c9.4-9.4 9.4-24.6 0-33.9L217.9 256z" }, child: [] }] })(t);
+  return v({ attr: { viewBox: "0 0 512 512" }, child: [{ tag: "path", attr: { d: "M217.9 256L345 129c9.4-9.4 9.4-24.6 0-33.9-9.4-9.4-24.6-9.3-34 0L167 239c-9.1 9.1-9.3 23.7-.7 33.1L310.9 417c4.7 4.7 10.9 7 17 7s12.3-2.3 17-7c9.4-9.4 9.4-24.6 0-33.9L217.9 256z" }, child: [] }] })(t);
 }
 function C(t) {
-  return v({ tag: "svg", attr: { viewBox: "0 0 512 512" }, child: [{ tag: "path", attr: { d: "M405 136.798L375.202 107 256 226.202 136.798 107 107 136.798 226.202 256 107 375.202 136.798 405 256 285.798 375.202 405 405 375.202 285.798 256z" }, child: [] }] })(t);
+  return v({ attr: { viewBox: "0 0 512 512" }, child: [{ tag: "path", attr: { d: "M405 136.798L375.202 107 256 226.202 136.798 107 107 136.798 226.202 256 107 375.202 136.798 405 256 285.798 375.202 405 405 375.202 285.798 256z" }, child: [] }] })(t);
 }
 export {
   v as G,
