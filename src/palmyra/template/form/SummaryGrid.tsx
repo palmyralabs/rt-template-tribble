@@ -32,7 +32,7 @@ function SummaryGrid(props: IGridInput) {
 
     return (
         <div className="py-grid-container">
-            <PalmyraGrid title={getTitle(props.title, 'grid')} 
+            <PalmyraGrid title={getTitle(props.title, 'grid')} lsKey={props.lsKey}
                 columns={props.columns} pagination={props.pagination} pageSize={props.pageSize}
                 getPluginOptions={props.getPluginOptions} defaultParams={props.defaultParams}
                 DataGridControls={DataGridControls} DataGridControlProps={{ newRecord }}

@@ -50,6 +50,7 @@ interface IFormViewInput extends IPageInput, IFormInput {
 interface IGridInput {
     customizer?: PalmyraGridOptions<any>['customizer'];
     quickSearch?: string;
+    lsKey?: string;
     options: IOptions & queryOptions;
     columns: PalmyraGridOptions<any>['columns'];
     pageSize?: PalmyraGridOptions<any>['pageSize'];
