@@ -1,6 +1,6 @@
 import { useRef as f, useState as d } from "react";
 const v = (t, c) => {
-  const s = c || f(), [n, l] = d(!1), o = () => {
+  const s = c || f(null), [n, l] = d(!1), o = () => {
     if (!n)
       return;
     s.current.saveData().then((a) => {

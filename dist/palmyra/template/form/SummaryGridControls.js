@@ -1,12 +1,11 @@
-import { jsxs as s, Fragment as u, jsx as o } from "react/jsx-runtime";
-import { QuickSearch as l, FilterButton as a, ExportDataButton as d } from "@palmyralabs/rt-forms-mantine";
-import { Button as m } from "@mantine/core";
-const h = (r) => {
-  var n, c;
+import { jsxs as n, Fragment as c, jsx as o } from "react/jsx-runtime";
+import { QuickSearch as s, FilterButton as u, ExportDataButton as l } from "@palmyralabs/rt-forms-mantine";
+import { Button as a } from "@mantine/core";
+const x = (r) => {
   const { getPluginOptions: i, ...t } = r, e = i ? i() : {};
-  return /* @__PURE__ */ s(u, { children: [
+  return /* @__PURE__ */ n(c, { children: [
     t.quickSearch && /* @__PURE__ */ o(
-      l,
+      s,
       {
         width: "200",
         queryRef: t.queryRef,
@@ -14,19 +13,19 @@ const h = (r) => {
         ...e.quickSearch
       }
     ),
-    /* @__PURE__ */ o(a, { ...t }),
+    /* @__PURE__ */ o(u, { ...t }),
     /* @__PURE__ */ o(
-      d,
+      l,
       {
         exportOption: { csv: "CSV" },
-        visible: (n = e.export) == null ? void 0 : n.visible,
-        disabled: (c = e.export) == null ? void 0 : c.disabled,
+        visible: e.export?.visible,
+        disabled: e.export?.disabled,
         queryRef: t.queryRef,
         ...e.export
       }
     ),
     /* @__PURE__ */ o(
-      m,
+      a,
       {
         onClick: () => r.newRecord(),
         ...e.add,
@@ -37,5 +36,5 @@ const h = (r) => {
   ] });
 };
 export {
-  h as SummaryGridControls
+  x as SummaryGridControls
 };

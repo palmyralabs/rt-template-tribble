@@ -13,7 +13,7 @@ function EditForm(props: IFormEditInput) {
 
     const navigate = useNavigate();
     const [isValid, setValid] = useState<boolean>(false);
-    const formRef = useRef<ISaveForm>();
+    const formRef = useRef<ISaveForm>(null);
     const id = props.id;
     const pageName = props.pageName;
 

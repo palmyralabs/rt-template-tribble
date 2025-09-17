@@ -1,4 +1,4 @@
-import { FC, MutableRefObject, useContext } from "react";
+import { FC, RefObject, useContext } from "react";
 import { IOptions } from "../Types";
 import { ISaveForm, PalmyraEditForm, StoreFactoryContext } from "@palmyralabs/rt-forms";
 import { ErrorHandler } from "@palmyralabs/palmyra-wire";
@@ -11,7 +11,7 @@ interface IFormInput {
     onQueryFailure: ErrorHandler,
     handleKeyPress: (event: any) => void,
     setValid: (s: any) => void,
-    formRef: MutableRefObject<ISaveForm>
+    formRef: RefObject<ISaveForm>
     customDataSection?: any
 }
 

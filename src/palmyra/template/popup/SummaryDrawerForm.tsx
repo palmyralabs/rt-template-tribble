@@ -1,5 +1,5 @@
 
-import { FC, forwardRef, MutableRefObject, useImperativeHandle, useRef, useState } from "react";
+import { FC, forwardRef, RefObject, useImperativeHandle, useRef, useState } from "react";
 import { useSaveForm } from "../hooks/useSaveForm";
 import { EditForm } from "./EditForm";
 import { NewForm } from "./NewForm";
@@ -30,7 +30,7 @@ interface IDrawerForm {
     setData: (d: any) => void
 }
 
-const SummaryDrawerForm = forwardRef((props: IDialogGridFormInput, ref: MutableRefObject<IDrawerForm>) => {
+const SummaryDrawerForm = forwardRef((props: IDialogGridFormInput, ref: RefObject<IDrawerForm>) => {
 
     const idKey = props.idKey || 'id';
     // const drawerWidth = props.dialogWidth || '600px';
@@ -39,7 +39,7 @@ const SummaryDrawerForm = forwardRef((props: IDialogGridFormInput, ref: MutableR
     const referenceCount = useRef<number>(0);
 
     const gridRef: any = props.gridRef;
-    const currentRef = ref || useRef();
+    const currentRef = ref || useRef(null);
 
     useImperativeHandle(currentRef, () => {
         return { setData }

@@ -8,7 +8,7 @@ import { F as p } from "../../../chunks/index2.js";
 import { I as D } from "../../../chunks/index.js";
 import { getTitle as w } from "../util/TitleUtil.js";
 function V(e) {
-  const m = b(), [s, d] = g(!1), r = N(), f = e.id, h = e.pageName, u = () => {
+  const m = b(), [s, d] = g(!1), r = N(null), f = e.id, h = e.pageName, u = () => {
     c.error("Something went wrong Please try again later.. ");
   }, i = () => {
     r.current.saveData().then((a) => {

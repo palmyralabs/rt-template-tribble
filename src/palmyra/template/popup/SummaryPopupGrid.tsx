@@ -29,7 +29,7 @@ function SummaryPopupGrid(props: IPopupGridInput) {
     const refreshTopic = props.pageName + "/refresh";
     const popup = props.popup || 'drawer';
 
-    const dialogFormRef: any = useRef<IDialogForm>();
+    const dialogFormRef: any = useRef<IDialogForm>(null);
     const gridRef: any = props.gridRef || useRef(null);
 
     useEffect(() => {

@@ -1,9 +1,9 @@
-import { MutableRefObject, useRef, useState } from "react";
+import { RefObject, useRef, useState } from "react";
 import { IFormInput } from "../Types";
 import { ISaveForm } from "@palmyralabs/rt-forms";
 
-const useSaveForm = (props: IFormInput, fRef?: MutableRefObject<ISaveForm>) => {
-    const formRef = fRef || useRef<ISaveForm>();
+const useSaveForm = (props: IFormInput, fRef?: RefObject<ISaveForm>) => {
+    const formRef = fRef || useRef<ISaveForm>(null);
 
     const [isValid, setValid] = useState<boolean>(false);
     const doSaveClose = () => {

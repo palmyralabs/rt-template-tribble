@@ -1,6 +1,6 @@
 import { IEndPoint, IEndPointOptions } from "@palmyralabs/palmyra-wire"
 import { DataGridPluginOptions, IExportOptions, PalmyraGridOptions } from "@palmyralabs/rt-forms"
-import { FC } from "react"
+import { FC, JSX } from "react"
 
 type ITitle = string | {
     grid?: string;

@@ -13,7 +13,7 @@ function NewForm(props: IFormNewInput) {
 
     const navigate = useNavigate();
     const [isValid, setValid] = useState<boolean>(false);
-    const formRef = useRef<ISaveForm>();
+    const formRef = useRef<ISaveForm>(null);
     const initialData = props.initialData || {};
     const pageName = props.pageName;
     const errorText = props.errorText;

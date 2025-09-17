@@ -1,12 +1,11 @@
-import { jsxs as c, Fragment as u, jsx as e } from "react/jsx-runtime";
-import { QuickSearch as a, FilterButton as l, ExportDataButton as p } from "@palmyralabs/rt-forms-mantine";
-import { Button as d } from "@mantine/core";
-const h = (r) => {
-  var n, s;
+import { jsxs as n, Fragment as s, jsx as e } from "react/jsx-runtime";
+import { QuickSearch as c, FilterButton as u, ExportDataButton as a } from "@palmyralabs/rt-forms-mantine";
+import { Button as l } from "@mantine/core";
+const x = (r) => {
   const { getPluginOptions: i, ...t } = r, o = i ? i() : {};
-  return /* @__PURE__ */ c(u, { children: [
+  return /* @__PURE__ */ n(s, { children: [
     t.quickSearch && /* @__PURE__ */ e(
-      a,
+      c,
       {
         width: "200",
         queryRef: t.queryRef,
@@ -14,19 +13,19 @@ const h = (r) => {
         ...o.quickSearch
       }
     ),
-    /* @__PURE__ */ e(l, { ...t }),
+    /* @__PURE__ */ e(u, { ...t }),
     /* @__PURE__ */ e(
-      p,
+      a,
       {
         exportOption: { csv: "CSV" },
-        visible: (n = o.export) == null ? void 0 : n.visible,
-        disabled: (s = o.export) == null ? void 0 : s.disabled,
+        visible: o.export?.visible,
+        disabled: o.export?.disabled,
         queryRef: t.queryRef,
         ...o.export
       }
     ),
     /* @__PURE__ */ e(
-      d,
+      l,
       {
         className: "py-action-button",
         onClick: () => r.setFormData({}),
@@ -37,5 +36,5 @@ const h = (r) => {
   ] });
 };
 export {
-  h as PopupGridControls
+  x as PopupGridControls
 };

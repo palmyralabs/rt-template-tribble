@@ -1,79 +1,78 @@
-import { jsx as o, jsxs as c } from "react/jsx-runtime";
-import { forwardRef as M, useState as O, useRef as w, useImperativeHandle as j } from "react";
-import { useSaveForm as L } from "../hooks/useSaveForm.js";
-import { EditForm as V } from "./EditForm.js";
-import { NewForm as B } from "./NewForm.js";
-import { Drawer as H, Button as y } from "@mantine/core";
-import { I as P } from "../../../chunks/index.js";
-import { F as Q } from "../../../chunks/index2.js";
-import { getTitle as S } from "../util/TitleUtil.js";
-const Y = M((e, h) => {
-  var f, F;
-  const n = e.idKey || "id", [t, i] = O(void 0), v = w(0), s = e.gridRef, D = h || w();
-  j(D, () => ({ setData: i }), [s]);
+import { jsx as t, jsxs as a } from "react/jsx-runtime";
+import { forwardRef as k, useState as K, useRef as F, useImperativeHandle as M } from "react";
+import { useSaveForm as O } from "../hooks/useSaveForm.js";
+import { EditForm as j } from "./EditForm.js";
+import { NewForm as L } from "./NewForm.js";
+import { Drawer as V, Button as C } from "@mantine/core";
+import { I as B } from "../../../chunks/index.js";
+import { F as H } from "../../../chunks/index2.js";
+import { getTitle as w } from "../util/TitleUtil.js";
+const W = k((e, y) => {
+  const n = e.idKey || "id", [o, i] = K(void 0), S = F(0), c = e.gridRef, h = y || F(null);
+  M(h, () => ({ setData: i }), [c]);
   const r = () => {
     i(void 0);
-  }, b = () => {
-    i(void 0), a();
-  }, a = () => {
-    v.current += 1, s.current.refresh();
-  }, N = (C) => (r(), !1), R = (C) => {
-    console.log(C);
+  }, v = () => {
+    i(void 0), s();
+  }, s = () => {
+    S.current += 1, c.current.refresh();
+  }, D = (f) => (r(), !1), b = (f) => {
+    console.log(f);
   }, {
-    doCancel: p,
-    doSaveClose: E,
+    doCancel: N,
+    doSaveClose: R,
     handleKeyPress: l,
-    setValid: m,
-    isValid: d,
+    setValid: d,
+    isValid: m,
     formRef: u
-  } = L({ onCancel: r, onComplete: b, onFailure: R, onSave: a }), g = t != null, x = e.EditFormlet, I = e.NewFormlet, T = t != null && t[n] ? S(e.title, "edit") : S(e.title, "new"), k = ((f = e.customDataSection) == null ? void 0 : f.new) || "", K = ((F = e.customDataSection) == null ? void 0 : F.edit) || "";
-  return /* @__PURE__ */ o(H, { position: "right", opened: g, onClose: r, title: T, children: /* @__PURE__ */ c("div", { className: "py-drawer-content-container", children: [
-    t != null && t[n] ? /* @__PURE__ */ o(
-      V,
+  } = O({ onCancel: r, onComplete: v, onFailure: b, onSave: s }), p = o != null, E = e.EditFormlet, g = e.NewFormlet, x = o?.[n] ? w(e.title, "edit") : w(e.title, "new"), I = e.customDataSection?.new || "", T = e.customDataSection?.edit || "";
+  return /* @__PURE__ */ t(V, { position: "right", opened: p, onClose: r, title: x, children: /* @__PURE__ */ a("div", { className: "py-drawer-content-container", children: [
+    o?.[n] ? /* @__PURE__ */ t(
+      j,
       {
-        setValid: m,
+        setValid: d,
         formRef: u,
-        onQueryFailure: N,
+        onQueryFailure: D,
         handleKeyPress: l,
         options: e.options,
-        customDataSection: K,
+        customDataSection: T,
         ...e.options,
-        id: t == null ? void 0 : t[n],
-        FORMLET: x
+        id: o?.[n],
+        FORMLET: E
       }
-    ) : /* @__PURE__ */ o(
-      B,
+    ) : /* @__PURE__ */ t(
+      L,
       {
-        setValid: m,
+        setValid: d,
         formRef: u,
-        customDataSection: k,
+        customDataSection: I,
         handleKeyPress: l,
         options: e.options,
         ...e.options,
-        initialData: t,
-        FORMLET: I
+        initialData: o,
+        FORMLET: g
       }
     ),
-    /* @__PURE__ */ c("div", { className: "py-drawer-form-btn-container", children: [
-      /* @__PURE__ */ o(
-        y,
+    /* @__PURE__ */ a("div", { className: "py-drawer-form-btn-container", children: [
+      /* @__PURE__ */ t(
+        C,
         {
           className: "py-cancel-filled-button",
-          onClick: p,
+          onClick: N,
           tabIndex: -1,
-          leftSection: /* @__PURE__ */ o(P, { className: "py-button-icon" }),
+          leftSection: /* @__PURE__ */ t(B, { className: "py-button-icon" }),
           children: "Cancel"
         }
       ),
-      /* @__PURE__ */ c(
-        y,
+      /* @__PURE__ */ a(
+        C,
         {
-          disabled: !d,
-          className: d ? "py-filled-button" : "py-disabled-button",
-          onClick: E,
-          leftSection: /* @__PURE__ */ o(Q, { className: "py-button-icon" }),
+          disabled: !m,
+          className: m ? "py-filled-button" : "py-disabled-button",
+          onClick: R,
+          leftSection: /* @__PURE__ */ t(H, { className: "py-button-icon" }),
           children: [
-            /* @__PURE__ */ o("u", { children: "S" }),
+            /* @__PURE__ */ t("u", { children: "S" }),
             "ave"
           ]
         }
@@ -82,5 +81,5 @@ const Y = M((e, h) => {
   ] }) });
 });
 export {
-  Y as SummaryDrawerForm
+  W as SummaryDrawerForm
 };

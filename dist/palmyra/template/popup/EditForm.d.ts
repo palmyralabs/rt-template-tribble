@@ -1,4 +1,4 @@
-import { FC, MutableRefObject } from 'react';
+import { FC, RefObject } from 'react';
 import { IOptions } from '../Types';
 import { ISaveForm } from '@palmyralabs/rt-forms';
 import { ErrorHandler } from '@palmyralabs/palmyra-wire';
@@ -9,7 +9,7 @@ interface IFormInput {
     onQueryFailure: ErrorHandler;
     handleKeyPress: (event: any) => void;
     setValid: (s: any) => void;
-    formRef: MutableRefObject<ISaveForm>;
+    formRef: RefObject<ISaveForm>;
     customDataSection?: any;
 }
 declare function EditForm(props: IFormInput): import("react/jsx-runtime").JSX.Element;

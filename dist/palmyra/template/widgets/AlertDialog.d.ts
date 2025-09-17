@@ -1,4 +1,4 @@
-import { default as React } from 'react';
+import { default as React, JSX } from 'react';
 interface IAlertDialogProps {
     title: any;
     content: JSX.Element;

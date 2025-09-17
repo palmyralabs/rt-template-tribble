@@ -1,7 +1,6 @@
-import { FC, MutableRefObject, useContext } from "react";
+import { FC, RefObject, useContext } from "react";
 import { IOptions } from "../Types";
 import { ISaveForm, PalmyraNewForm, StoreFactoryContext } from "@palmyralabs/rt-forms";
-
 
 interface IFormInput {
     options: IOptions,
@@ -9,7 +8,7 @@ interface IFormInput {
     FORMLET: FC
     handleKeyPress: (event: any) => void,
     setValid: (s: any) => void,
-    formRef: MutableRefObject<ISaveForm>
+    formRef: RefObject<ISaveForm>
     customDataSection?: any
 }
 

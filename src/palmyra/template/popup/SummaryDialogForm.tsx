@@ -1,5 +1,5 @@
 
-import { FC, forwardRef, MutableRefObject, useImperativeHandle, useRef, useState } from "react";
+import { FC, forwardRef, RefObject, useImperativeHandle, useRef, useState } from "react";
 import { useSaveForm } from "../hooks/useSaveForm";
 import { EditForm } from "./EditForm";
 import { NewForm } from "./NewForm";
@@ -35,7 +35,7 @@ interface IDialogForm {
     setData: (d: any) => void
 }
 
-const SummaryDialogForm = forwardRef((props: IDialogGridFormInput, ref: MutableRefObject<IDialogForm>) => {
+const SummaryDialogForm = forwardRef((props: IDialogGridFormInput, ref: RefObject<IDialogForm>) => {
     const [opened, { open, close }] = useDisclosure(false);
     const idKey = props.idKey || 'id';
     // const height = props.dialogHeight || 'auto';
@@ -46,7 +46,7 @@ const SummaryDialogForm = forwardRef((props: IDialogGridFormInput, ref: MutableR
     const referenceCount = useRef<number>(0);
 
     const gridRef: any = props.gridRef;
-    const currentRef = ref || useRef();
+    const currentRef = ref || useRef(null);
 
     useImperativeHandle(currentRef, () => {
         return { setData }

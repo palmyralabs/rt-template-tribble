@@ -8,16 +8,16 @@ import { I as b } from "../../../chunks/index.js";
 import { F as v } from "../../../chunks/index2.js";
 import { getTitle as D } from "../util/TitleUtil.js";
 function V(t) {
-  const m = g(), [s, f] = p(!1), n = N(), d = t.initialData || {}, h = t.pageName, i = t.errorText, u = () => {
+  const m = g(), [s, f] = p(!1), n = N(null), d = t.initialData || {}, u = t.pageName, i = t.errorText, h = () => {
     a.error("Something went wrong Please try again later.. ");
   }, y = () => {
     i ? a.error(i) : a.error("Data Already Exit");
   }, c = () => {
     n.current.saveData().then((e) => {
       if (e)
-        return t.successMsg && a.success(t.successMsg), m("../" + h);
+        return t.successMsg && a.success(t.successMsg), m("../" + u);
     }).catch((e) => {
-      e.response && e.response.status === 400 ? y() : e.response && e.response.status === 500 && u();
+      e.response && e.response.status === 400 ? y() : e.response && e.response.status === 500 && h();
     });
   };
   return /* @__PURE__ */ r("div", { className: "py-form-container", children: /* @__PURE__ */ o("form", { onKeyDown: (e) => {

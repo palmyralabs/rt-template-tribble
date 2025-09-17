@@ -1,5 +1,5 @@
 import ReactDOM from 'react-dom/client'
-import React, { forwardRef, MutableRefObject, useImperativeHandle, useRef, useState } from 'react';
+import React, { forwardRef, JSX, RefObject, useImperativeHandle, useRef, useState } from 'react';
 import { Button, Modal } from '@mantine/core';
 
 interface IAlertDialogProps {
@@ -16,11 +16,11 @@ interface IDialog {
     show: () => void
 }
 
-const AlertDialog = forwardRef(function AlertDialog(props: IAlertDialogProps, ref: MutableRefObject<IDialog>) {
+const AlertDialog = forwardRef(function AlertDialog(props: IAlertDialogProps, ref: RefObject<IDialog>) {
 
     const { buttonText = 'OK' } = props;
     const [open, setOpen] = useState<boolean>(!props.hidden);
-    const currentRef = ref || useRef<IDialog>();
+    const currentRef = ref || useRef<IDialog>(null);
 
     useImperativeHandle(currentRef, () => {
         return {
@@ -56,7 +56,7 @@ const AlertDialog = forwardRef(function AlertDialog(props: IAlertDialogProps, re
 
 
 const showDialog = (options: Omit<IAlertDialogProps, 'hidden'>, Dialog?: React.FC) => {
-    const Element = Dialog || AlertDialog;
+    const Element: any = Dialog || AlertDialog;
     const root = ReactDOM.createRoot(document.getElementById('PalmyraDialogRoot')!);
 
     const unmount = () => {
