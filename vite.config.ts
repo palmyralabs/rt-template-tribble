@@ -45,6 +45,7 @@ export default defineConfig({
         'react',
         'html2canvas',
         'react-dom',
+        'react-dom/client',
         'react-icons',
         'react-toastify',
         'react-router-dom',
