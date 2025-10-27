@@ -77,6 +77,7 @@ interface ISummaryGridInput extends IPageInput, IGridInput {
     densityOptions?: any,
     idKey?: string,
     disableRowClick?: boolean
+    showFooter?: boolean
 }
 
 interface SummaryGridPluginOptions extends DataGridPluginOptions {
@@ -88,6 +89,6 @@ interface PopupGridPluginOptions extends DataGridPluginOptions {
 }
 
 export type {
-    IPageInput, IFormEditInput, IFormNewInput, IFormViewInput,ITitle,
+    IPageInput, IFormEditInput, IFormNewInput, IFormViewInput, ITitle,
     ISummaryGridInput, IFormInput, IOptions, SummaryGridPluginOptions, PopupGridPluginOptions
 }
