@@ -1,56 +1,57 @@
 import { jsxs as D, jsx as m } from "react/jsx-runtime";
-import { useRef as u, useEffect as v } from "react";
-import { topic as i } from "@palmyralabs/ts-utils";
+import { useRef as s, useEffect as v } from "react";
+import { topic as t } from "@palmyralabs/ts-utils";
 import { PalmyraGrid as y } from "@palmyralabs/rt-forms-mantine";
-import { SummaryDialogForm as N } from "./SummaryDialogForm.js";
-import { SummaryDrawerForm as R } from "./SummaryDrawerForm.js";
-import { PopupGridControls as S } from "./PopupGridControls.js";
+import { SummaryDialogForm as F } from "./SummaryDialogForm.js";
+import { SummaryDrawerForm as N } from "./SummaryDrawerForm.js";
+import { PopupGridControls as R } from "./PopupGridControls.js";
 import '../../../assets/Layout.css';/* empty css                     */
-import { getTitle as k } from "../util/TitleUtil.js";
+import { getTitle as S } from "../util/TitleUtil.js";
 function j(e) {
-  const s = e.pageName + "/viewPage", l = e.pageName + "/newPage", d = e.pageName + "/refresh", f = e.popup || "drawer", n = u(null), r = e.gridRef || u(null);
+  const u = e.pageName + "/viewPage", l = e.pageName + "/newPage", d = e.pageName + "/refresh", f = e.popup || "drawer", a = s(null), o = e.gridRef || s(null);
   v(() => {
-    var t = i.subscribe(s, (c, o) => {
-      a(o);
-    }), h = i.subscribe(d, (c) => {
-      r.current && r.current.refresh();
-    }), C = i.subscribe(l, (c, o) => {
-      a(o);
+    var i = t.subscribe(u, (c, n) => {
+      r(n);
+    }), h = t.subscribe(d, (c) => {
+      o.current && o.current.refresh();
+    }), C = t.subscribe(l, (c, n) => {
+      r(n);
     });
     return () => {
-      i.unsubscribe(t), i.unsubscribe(C), i.unsubscribe(h);
+      t.unsubscribe(i), t.unsubscribe(C), t.unsubscribe(h);
     };
   }, []);
-  const g = (t) => {
-    a(t);
-  }, a = (t) => {
-    n.current && n.current.setData(t);
-  }, P = e.DataGridControls || S, b = f == "drawer" ? R : N, w = e.disableRowClick ? () => {
+  const g = (i) => {
+    r(i);
+  }, r = (i) => {
+    a.current && a.current.setData(i);
+  }, P = e.DataGridControls || R, w = f == "drawer" ? N : F, b = e.disableRowClick ? () => {
   } : g;
   return /* @__PURE__ */ D("div", { className: "py-grid-container", children: [
     /* @__PURE__ */ m(
       y,
       {
-        title: k(e.title, "grid"),
+        title: S(e.title, "grid"),
         columns: e.columns,
-        DataGridControlProps: { setFormData: a },
+        DataGridControlProps: { setFormData: r },
         pagination: e.pagination,
         onDataChange: e.onDataChange,
         lsKey: e.lsKey,
         DataGridControls: P,
-        onRowClick: w,
+        onRowClick: b,
         defaultParams: e.defaultParams,
         endPoint: e.options.endPoint,
         endPointOptions: e.options.endPointOptions,
         pageSize: e.pageSize,
         ...e.options,
         getPluginOptions: e.getPluginOptions,
-        ref: r,
+        ref: o,
         customizer: e.customizer,
-        quickSearch: e.quickSearch
+        quickSearch: e.quickSearch,
+        showFooter: e.showFooter
       }
     ),
-    /* @__PURE__ */ m(b, { ...e, gridRef: r, ref: n })
+    /* @__PURE__ */ m(w, { ...e, gridRef: o, ref: a })
   ] });
 }
 export {

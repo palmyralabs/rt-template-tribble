@@ -67,6 +67,7 @@ interface ISummaryGridInput extends IPageInput, IGridInput {
     densityOptions?: any;
     idKey?: string;
     disableRowClick?: boolean;
+    showFooter?: boolean;
 }
 interface SummaryGridPluginOptions extends DataGridPluginOptions {
     newRecord: () => void;
