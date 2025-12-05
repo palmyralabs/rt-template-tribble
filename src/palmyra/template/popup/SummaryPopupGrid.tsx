@@ -16,6 +16,7 @@ interface IPopupGridInput extends ISummaryGridInput {
     width?: any
     height?: string,
     minWidth?: string,
+    enableSaveVariants?: boolean
     customDataSection?: {
         new?: any
         edit?: any
@@ -73,7 +74,7 @@ function SummaryPopupGrid(props: IPopupGridInput) {
             DataGridControls={DataGridControls} onRowClick={rowClick} defaultParams={props.defaultParams}
             endPoint={props.options.endPoint} endPointOptions={props.options.endPointOptions}
             pageSize={props.pageSize} {...props.options} getPluginOptions={props.getPluginOptions}
-            ref={gridRef} customizer={props.customizer} quickSearch={props.quickSearch} showFooter={props.showFooter}/>
+            ref={gridRef} customizer={props.customizer} quickSearch={props.quickSearch} showFooter={props.showFooter} />
         <PopupForm {...props} gridRef={gridRef} ref={dialogFormRef} />
     </div>
     );

@@ -1,15 +1,15 @@
 
+import { Button, Modal } from "@mantine/core";
+import { useDisclosure } from '@mantine/hooks';
+import { ErrorHandler } from "@palmyralabs/palmyra-wire";
 import { FC, forwardRef, RefObject, useImperativeHandle, useRef, useState } from "react";
+import { IoMdClose } from "react-icons/io";
+import { MdDone } from "react-icons/md";
 import { useSaveForm } from "../hooks/useSaveForm";
+import { IOptions } from "../Types";
+import { getTitle } from "../util/TitleUtil";
 import { EditForm } from "./EditForm";
 import { NewForm } from "./NewForm";
-import { IOptions } from "../Types";
-import { ErrorHandler } from "@palmyralabs/palmyra-wire";
-import { Button, Modal } from "@mantine/core";
-import { IoMdClose } from "react-icons/io";
-import { FaCheck } from "react-icons/fa";
-import { useDisclosure } from '@mantine/hooks';
-import { getTitle } from "../util/TitleUtil";
 
 interface IDialogGridFormInput {
     options: IOptions,
@@ -29,6 +29,7 @@ interface IDialogGridFormInput {
     dialogHeight?: string,
     dialogWidth?: string,
     dialogMinWidth?: string
+    enableSaveVariants?: boolean
 }
 
 interface IDialogForm {
@@ -78,7 +79,7 @@ const SummaryDialogForm = forwardRef((props: IDialogGridFormInput, ref: RefObjec
     if (data !== undefined && !opened) {
         open();
     }
-    const { doCancel, doSaveClose, handleKeyPress,
+    const { doCancel, doSaveClose, doSaveNew, handleKeyPress,
         setValid, isValid, formRef } = useSaveForm({ onCancel, onComplete, onFailure: handleError, onSave });
 
     const EditFormlet = props.EditFormlet;
@@ -104,11 +105,28 @@ const SummaryDialogForm = forwardRef((props: IDialogGridFormInput, ref: RefObjec
                     leftSection={<IoMdClose className="py-button-icon" />}>
                     Cancel
                 </Button>
-                <Button disabled={!isValid}
-                    className={!isValid ? 'py-disabled-button' : 'py-filled-button'}
-                    onClick={doSaveClose} leftSection={<FaCheck className="py-button-icon" />}>
-                    <u>S</u>ave
-                </Button>
+                {(!data?.[idKey] && props.enableSaveVariants) ? <>
+                    <div>
+                        <Button disabled={!isValid}
+                            className={!isValid ? 'py-disabled-button' : 'py-filled-button'}
+                            onClick={doSaveNew} leftSection={<MdDone className="py-button-icon" />}>
+                            <u>S</u>ave & New
+                        </Button>
+                    </div>
+                    <div>
+                        <Button disabled={!isValid}
+                            className={!isValid ? 'py-disabled-button' : 'py-filled-button'}
+                            onClick={doSaveClose} leftSection={<MdDone className="py-button-icon" />}>
+                            <u>S</u>ave & Close
+                        </Button>
+                    </div>
+                </> : <div>
+                    <Button disabled={!isValid}
+                        className={!isValid ? 'py-disabled-button' : 'py-filled-button'}
+                        onClick={doSaveClose} leftSection={<MdDone className="py-button-icon" />}>
+                        <u>S</u>ave
+                    </Button>
+                </div>}
             </div>
         </Modal>
     </>
@@ -116,4 +134,4 @@ const SummaryDialogForm = forwardRef((props: IDialogGridFormInput, ref: RefObjec
 });
 
 export { SummaryDialogForm };
-export type { IDialogGridFormInput, IDialogForm }
+export type { IDialogForm, IDialogGridFormInput };
