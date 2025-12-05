@@ -7,6 +7,7 @@ interface IPopupGridInput extends ISummaryGridInput {
     width?: any;
     height?: string;
     minWidth?: string;
+    enableSaveVariants?: boolean;
     customDataSection?: {
         new?: any;
         edit?: any;

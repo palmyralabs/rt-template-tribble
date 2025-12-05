@@ -1,85 +1,113 @@
-import { jsx as t, jsxs as a } from "react/jsx-runtime";
-import { forwardRef as k, useState as K, useRef as F, useImperativeHandle as M } from "react";
-import { useSaveForm as O } from "../hooks/useSaveForm.js";
-import { EditForm as j } from "./EditForm.js";
-import { NewForm as L } from "./NewForm.js";
-import { Drawer as V, Button as C } from "@mantine/core";
+import { jsx as e, jsxs as i, Fragment as K } from "react/jsx-runtime";
+import { Drawer as O, Button as l } from "@mantine/core";
+import { forwardRef as V, useState as j, useRef as y, useImperativeHandle as L } from "react";
 import { I as B } from "../../../chunks/index.js";
-import { F as H } from "../../../chunks/index2.js";
-import { getTitle as w } from "../util/TitleUtil.js";
-const W = k((e, y) => {
-  const n = e.idKey || "id", [o, i] = K(void 0), S = F(0), c = e.gridRef, h = y || F(null);
-  M(h, () => ({ setData: i }), [c]);
-  const r = () => {
-    i(void 0);
-  }, v = () => {
-    i(void 0), s();
-  }, s = () => {
-    S.current += 1, c.current.refresh();
-  }, D = (f) => (r(), !1), b = (f) => {
-    console.log(f);
+import { M as d } from "../../../chunks/index2.js";
+import { useSaveForm as H } from "../hooks/useSaveForm.js";
+import { getTitle as S } from "../util/TitleUtil.js";
+import { EditForm as P } from "./EditForm.js";
+import { NewForm as Q } from "./NewForm.js";
+const Y = V((t, C) => {
+  const a = t.idKey || "id", [o, r] = j(void 0), N = y(0), s = t.gridRef, w = C || y(null);
+  L(w, () => ({ setData: r }), [s]);
+  const c = () => {
+    r(void 0);
+  }, F = () => {
+    r(void 0), m();
+  }, m = () => {
+    N.current += 1, s.current.refresh();
+  }, D = (v) => (c(), !1), p = (v) => {
+    console.log(v);
   }, {
-    doCancel: N,
-    doSaveClose: R,
-    handleKeyPress: l,
-    setValid: d,
-    isValid: m,
-    formRef: u
-  } = O({ onCancel: r, onComplete: v, onFailure: b, onSave: s }), p = o != null, E = e.EditFormlet, g = e.NewFormlet, x = o?.[n] ? w(e.title, "edit") : w(e.title, "new"), I = e.customDataSection?.new || "", T = e.customDataSection?.edit || "";
-  return /* @__PURE__ */ t(V, { position: "right", opened: p, onClose: r, title: x, children: /* @__PURE__ */ a("div", { className: "py-drawer-content-container", children: [
-    o?.[n] ? /* @__PURE__ */ t(
-      j,
+    doCancel: R,
+    doSaveClose: u,
+    doSaveNew: g,
+    handleKeyPress: f,
+    setValid: b,
+    isValid: n,
+    formRef: h
+  } = H({ onCancel: c, onComplete: F, onFailure: p, onSave: m }), E = o != null, M = t.EditFormlet, k = t.NewFormlet, x = o?.[a] ? S(t.title, "edit") : S(t.title, "new"), I = t.customDataSection?.new || "", T = t.customDataSection?.edit || "";
+  return /* @__PURE__ */ e(O, { position: "right", opened: E, onClose: c, title: x, children: /* @__PURE__ */ i("div", { className: "py-drawer-content-container", children: [
+    o?.[a] ? /* @__PURE__ */ e(
+      P,
       {
-        setValid: d,
-        formRef: u,
+        setValid: b,
+        formRef: h,
         onQueryFailure: D,
-        handleKeyPress: l,
-        options: e.options,
+        handleKeyPress: f,
+        options: t.options,
         customDataSection: T,
-        ...e.options,
-        id: o?.[n],
-        FORMLET: E
+        ...t.options,
+        id: o?.[a],
+        FORMLET: M
       }
-    ) : /* @__PURE__ */ t(
-      L,
+    ) : /* @__PURE__ */ e(
+      Q,
       {
-        setValid: d,
-        formRef: u,
+        setValid: b,
+        formRef: h,
         customDataSection: I,
-        handleKeyPress: l,
-        options: e.options,
-        ...e.options,
+        handleKeyPress: f,
+        options: t.options,
+        ...t.options,
         initialData: o,
-        FORMLET: g
+        FORMLET: k
       }
     ),
-    /* @__PURE__ */ a("div", { className: "py-drawer-form-btn-container", children: [
-      /* @__PURE__ */ t(
-        C,
+    /* @__PURE__ */ i("div", { className: "py-drawer-form-btn-container", children: [
+      /* @__PURE__ */ e("div", { children: /* @__PURE__ */ e(
+        l,
         {
           className: "py-cancel-filled-button",
-          onClick: N,
+          onClick: R,
           tabIndex: -1,
-          leftSection: /* @__PURE__ */ t(B, { className: "py-button-icon" }),
+          leftSection: /* @__PURE__ */ e(B, { className: "py-button-icon" }),
           children: "Cancel"
         }
-      ),
-      /* @__PURE__ */ a(
-        C,
+      ) }),
+      !o?.[a] && t.enableSaveVariants ? /* @__PURE__ */ i(K, { children: [
+        /* @__PURE__ */ e("div", { children: /* @__PURE__ */ i(
+          l,
+          {
+            disabled: !n,
+            className: n ? "py-filled-button" : "py-disabled-button",
+            onClick: g,
+            leftSection: /* @__PURE__ */ e(d, { className: "py-button-icon" }),
+            children: [
+              /* @__PURE__ */ e("u", { children: "S" }),
+              "ave & New"
+            ]
+          }
+        ) }),
+        /* @__PURE__ */ e("div", { children: /* @__PURE__ */ i(
+          l,
+          {
+            disabled: !n,
+            className: n ? "py-filled-button" : "py-disabled-button",
+            onClick: u,
+            leftSection: /* @__PURE__ */ e(d, { className: "py-button-icon" }),
+            children: [
+              /* @__PURE__ */ e("u", { children: "S" }),
+              "ave & Close"
+            ]
+          }
+        ) })
+      ] }) : /* @__PURE__ */ e("div", { children: /* @__PURE__ */ i(
+        l,
         {
-          disabled: !m,
-          className: m ? "py-filled-button" : "py-disabled-button",
-          onClick: R,
-          leftSection: /* @__PURE__ */ t(H, { className: "py-button-icon" }),
+          disabled: !n,
+          className: n ? "py-filled-button" : "py-disabled-button",
+          onClick: u,
+          leftSection: /* @__PURE__ */ e(d, { className: "py-button-icon" }),
           children: [
-            /* @__PURE__ */ t("u", { children: "S" }),
+            /* @__PURE__ */ e("u", { children: "S" }),
             "ave"
           ]
         }
-      )
+      ) })
     ] })
   ] }) });
 });
 export {
-  W as SummaryDrawerForm
+  Y as SummaryDrawerForm
 };

@@ -18,10 +18,11 @@ interface IDialogGridFormInput {
     dialogHeight?: string;
     dialogWidth?: string;
     dialogMinWidth?: string;
+    enableSaveVariants?: boolean;
 }
 interface IDialogForm {
     setData: (d: any) => void;
 }
 declare const SummaryDialogForm: import('react').ForwardRefExoticComponent<IDialogGridFormInput & import('react').RefAttributes<IDialogForm>>;
 export { SummaryDialogForm };
-export type { IDialogGridFormInput, IDialogForm };
+export type { IDialogForm, IDialogGridFormInput };

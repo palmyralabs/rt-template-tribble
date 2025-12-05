@@ -4,7 +4,7 @@ import { useNavigate as v } from "react-router-dom";
 import { toast as N } from "react-toastify";
 import { PalmyraEditForm as b } from "@palmyralabs/rt-forms";
 import { Button as c } from "@mantine/core";
-import { F as g } from "../../../chunks/index2.js";
+import { F as g } from "../../../chunks/index3.js";
 import { I as D } from "../../../chunks/index.js";
 import { getTitle as S } from "../util/TitleUtil.js";
 function E(e) {

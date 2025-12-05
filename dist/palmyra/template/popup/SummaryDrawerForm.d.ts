@@ -10,6 +10,7 @@ interface IDialogGridFormInput {
     dialogHeight?: string;
     dialogWidth?: string;
     dialogMinWidth?: string;
+    enableSaveVariants?: boolean;
     customDataSection?: {
         new?: any;
         edit?: any;
