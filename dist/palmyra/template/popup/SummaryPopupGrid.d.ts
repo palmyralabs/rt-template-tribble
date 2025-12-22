@@ -13,6 +13,8 @@ interface IPopupGridInput extends ISummaryGridInput {
         edit?: any;
     };
     popup?: 'dialog' | 'drawer';
+    onSaveSuccess?: (data: any) => void;
+    onSaveFailure?: (e: any) => void;
 }
 declare function SummaryPopupGrid(props: IPopupGridInput): import("react/jsx-runtime").JSX.Element;
 export { SummaryPopupGrid };

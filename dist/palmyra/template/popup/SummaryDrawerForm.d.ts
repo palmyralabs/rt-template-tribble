@@ -11,6 +11,8 @@ interface IDialogGridFormInput {
     dialogWidth?: string;
     dialogMinWidth?: string;
     enableSaveVariants?: boolean;
+    onSaveSuccess?: (data: any) => void;
+    onSaveFailure?: (e: any) => void;
     customDataSection?: {
         new?: any;
         edit?: any;

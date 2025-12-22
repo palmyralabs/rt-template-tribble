@@ -9,6 +9,8 @@ interface IDialogGridFormInput {
         edit?: any;
     };
     gridRef: any;
+    onSaveSuccess?: (data: any) => void;
+    onSaveFailure?: (e: any) => void;
     title?: string | {
         grid?: string;
         new?: string;
