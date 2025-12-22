@@ -20,6 +20,8 @@ interface IDialogGridFormInput {
         edit?: any
     }
     gridRef: any,
+    onSaveSuccess?: (data: any) => void;
+    onSaveFailure?: (e: any) => void;
     title?: string | {
         grid?: string;
         new?: string;
@@ -58,10 +60,11 @@ const SummaryDialogForm = forwardRef((props: IDialogGridFormInput, ref: RefObjec
         close();
     }
 
-    const onComplete = () => {
+    const onComplete = (d) => {
         setData(undefined)
         onSave();
         close();
+        props.onSaveSuccess(d)
     }
 
     const onSave = () => {
@@ -70,8 +73,13 @@ const SummaryDialogForm = forwardRef((props: IDialogGridFormInput, ref: RefObjec
     }
 
     const handleError = (e) => {
-        console.log(e);
+        props.onSaveFailure(e)
     }
+
+    const handleOnSave = (d) => {
+        props.onSaveSuccess(d)
+    }
+    
     const onQueryFailure: ErrorHandler = (_e) => {
         onCancel();
         return false;
@@ -80,7 +88,7 @@ const SummaryDialogForm = forwardRef((props: IDialogGridFormInput, ref: RefObjec
         open();
     }
     const { doCancel, doSaveClose, doSaveNew, handleKeyPress,
-        setValid, isValid, formRef } = useSaveForm({ onCancel, onComplete, onFailure: handleError, onSave });
+        setValid, isValid, formRef } = useSaveForm({ onCancel, onComplete, onFailure: handleError, onSave: handleOnSave });
 
     const EditFormlet = props.EditFormlet;
     const NewFormlet = props.NewFormlet;

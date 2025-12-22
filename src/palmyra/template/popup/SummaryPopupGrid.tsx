@@ -21,7 +21,9 @@ interface IPopupGridInput extends ISummaryGridInput {
         new?: any
         edit?: any
     }
-    popup?: 'dialog' | 'drawer'
+    popup?: 'dialog' | 'drawer',
+    onSaveSuccess?: (data: any) => void;
+    onSaveFailure?: (e: any) => void;
 }
 
 function SummaryPopupGrid(props: IPopupGridInput) {

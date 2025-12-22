@@ -21,6 +21,8 @@ interface IDialogGridFormInput {
     dialogWidth?: string,
     dialogMinWidth?: string
     enableSaveVariants?: boolean,
+    onSaveSuccess?: (data: any) => void;
+    onSaveFailure?: (e: any) => void;
     customDataSection?: {
         new?: any
         edit?: any
@@ -50,9 +52,10 @@ const SummaryDrawerForm = forwardRef((props: IDialogGridFormInput, ref: RefObjec
         setData(undefined)
     }
 
-    const onComplete = () => {
+    const onComplete = (d) => {
         setData(undefined)
         onSave();
+        props.onSaveSuccess(d)
     }
 
     const onSave = () => {
@@ -66,11 +69,15 @@ const SummaryDrawerForm = forwardRef((props: IDialogGridFormInput, ref: RefObjec
     }
 
     const handleError = (e) => {
-        console.log(e);
+        props.onSaveFailure(e)
+    }
+
+    const handleOnSave = (d) => {
+        props.onSaveSuccess(d)
     }
 
     const { doCancel, doSaveClose, doSaveNew, handleKeyPress,
-        setValid, isValid, formRef } = useSaveForm({ onCancel, onComplete, onFailure: handleError, onSave });
+        setValid, isValid, formRef } = useSaveForm({ onCancel, onComplete, onFailure: handleError, onSave: handleOnSave });
 
     const drawerOpen: boolean = data != undefined;
     const EditFormlet = props.EditFormlet;
