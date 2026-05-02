@@ -42,7 +42,7 @@
     "**/*.css"
   ],
   "peerDependencies": {
-    "@mantine/core": "^8.3.1",
+    "@mantine/core": "^9.1.0",
     "@palmyralabs/palmyra-wire": "^1.2.0",
     "@palmyralabs/rt-forms": "github:palmyralabs/rt-forms",
     "@palmyralabs/rt-forms-mantine": "github:palmyralabs/rt-forms-mantine",
