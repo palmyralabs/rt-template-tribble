@@ -2,12 +2,20 @@ import { ExportDataButton, FilterButton, IDataGridDefaultControlConfig, QuickSea
 
 import { PopupGridPluginOptions } from "../Types";
 import { Button } from "@mantine/core";
+import { useEffect } from "react";
+import { handlekeyPress } from "../util/handlekeyPress";
 
 const PopupGridControls = (props: PopupGridPluginOptions) => {
     const { getPluginOptions, ...o } = props;
     const pluginOptions: IDataGridDefaultControlConfig = getPluginOptions ? getPluginOptions() : {};
+    
+    useEffect(() => {
+        const onKey = handlekeyPress(() => props.setFormData({}), 'n', { alt: true });
+        document.addEventListener('keydown', onKey);
+        return () => document.removeEventListener('keydown', onKey);
+    }, [props.setFormData]);
 
-    return (<>
+    return (<div>
         {o.quickSearch && <QuickSearch width="200" queryRef={o.queryRef}
             columns={o.columns} {...pluginOptions.quickSearch} />}
         <FilterButton {...o} />
@@ -16,7 +24,7 @@ const PopupGridControls = (props: PopupGridPluginOptions) => {
             queryRef={o.queryRef} {...pluginOptions.export} />
         <Button className="py-action-button" onClick={() => props.setFormData({})}
             {...pluginOptions.add}>Add</Button>
-    </>);
+    </div>);
 }
 
 export { PopupGridControls }

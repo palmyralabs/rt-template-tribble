@@ -64,7 +64,7 @@ const SummaryDialogForm = forwardRef((props: IDialogGridFormInput, ref: RefObjec
         setData(undefined)
         onSave();
         close();
-        props.onSaveSuccess(d)
+        props.onSaveSuccess?.(d)
     }
 
     const onSave = () => {
@@ -73,11 +73,11 @@ const SummaryDialogForm = forwardRef((props: IDialogGridFormInput, ref: RefObjec
     }
 
     const handleError = (e) => {
-        props.onSaveFailure(e)
+        props.onSaveFailure?.(e)
     }
 
     const handleOnSave = (d) => {
-        props.onSaveSuccess(d)
+        props.onSaveSuccess?.(d)
     }
     
     const onQueryFailure: ErrorHandler = (_e) => {
@@ -98,7 +98,7 @@ const SummaryDialogForm = forwardRef((props: IDialogGridFormInput, ref: RefObjec
     const editCustomData = props.customDataSection?.edit || ''
     return (<>
         <Modal opened={opened} onClose={doCancel} onKeyDown={handleKeyPress} title={formTitle}
-            centered >
+            centered>
             {data?.[idKey] ?
                 <EditForm setValid={setValid} formRef={formRef} onQueryFailure={onQueryFailure}
                     handleKeyPress={handleKeyPress} options={props.options} customDataSection={editCustomData}
