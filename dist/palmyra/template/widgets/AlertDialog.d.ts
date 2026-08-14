@@ -13,5 +13,5 @@ interface IDialog {
 }
 declare const AlertDialog: React.ForwardRefExoticComponent<IAlertDialogProps & React.RefAttributes<IDialog>>;
 declare const showDialog: (options: Omit<IAlertDialogProps, "hidden">, Dialog?: React.FC) => void;
-declare const PyDialogRoot: () => import("react/jsx-runtime").JSX.Element;
+declare const PyDialogRoot: () => JSX.Element;
 export { AlertDialog, PyDialogRoot, showDialog };

@@ -1,40 +1,45 @@
-import { jsxs as n, Fragment as s, jsx as e } from "react/jsx-runtime";
-import { QuickSearch as c, FilterButton as u, ExportDataButton as a } from "@palmyralabs/rt-forms-mantine";
-import { Button as l } from "@mantine/core";
-const x = (r) => {
-  const { getPluginOptions: i, ...t } = r, o = i ? i() : {};
-  return /* @__PURE__ */ n(s, { children: [
-    t.quickSearch && /* @__PURE__ */ e(
-      c,
+import { jsxs as s, jsx as r } from "react/jsx-runtime";
+import { QuickSearch as u, FilterButton as c, ExportDataButton as a } from "@palmyralabs/rt-forms-mantine";
+import { Button as d } from "@mantine/core";
+import { useEffect as m } from "react";
+import { handlekeyPress as l } from "../util/handlekeyPress.js";
+const k = (o) => {
+  const { getPluginOptions: n, ...e } = o, t = n ? n() : {};
+  return m(() => {
+    const i = l(() => o.setFormData({}), "n", { alt: !0 });
+    return document.addEventListener("keydown", i), () => document.removeEventListener("keydown", i);
+  }, [o.setFormData]), /* @__PURE__ */ s("div", { children: [
+    e.quickSearch && /* @__PURE__ */ r(
+      u,
       {
         width: "200",
-        queryRef: t.queryRef,
-        columns: t.columns,
-        ...o.quickSearch
+        queryRef: e.queryRef,
+        columns: e.columns,
+        ...t.quickSearch
       }
     ),
-    /* @__PURE__ */ e(u, { ...t }),
-    /* @__PURE__ */ e(
+    /* @__PURE__ */ r(c, { ...e }),
+    /* @__PURE__ */ r(
       a,
       {
         exportOption: { csv: "CSV" },
-        visible: o.export?.visible,
-        disabled: o.export?.disabled,
-        queryRef: t.queryRef,
-        ...o.export
+        visible: t.export?.visible,
+        disabled: t.export?.disabled,
+        queryRef: e.queryRef,
+        ...t.export
       }
     ),
-    /* @__PURE__ */ e(
-      l,
+    /* @__PURE__ */ r(
+      d,
       {
         className: "py-action-button",
-        onClick: () => r.setFormData({}),
-        ...o.add,
+        onClick: () => o.setFormData({}),
+        ...t.add,
         children: "Add"
       }
     )
   ] });
 };
 export {
-  x as PopupGridControls
+  k as PopupGridControls
 };

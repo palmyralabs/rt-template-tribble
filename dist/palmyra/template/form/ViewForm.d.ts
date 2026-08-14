@@ -1,3 +1,3 @@
 import { IFormViewInput } from '../Types';
-declare function ViewForm(props: IFormViewInput): import("react/jsx-runtime").JSX.Element;
+declare function ViewForm(props: IFormViewInput): import("react").JSX.Element;
 export { ViewForm };

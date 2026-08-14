@@ -2,8 +2,8 @@ import { jsx as t, Fragment as C, jsxs as a } from "react/jsx-runtime";
 import { Modal as L, Button as c } from "@mantine/core";
 import { useDisclosure as B } from "@mantine/hooks";
 import { forwardRef as H, useState as P, useRef as F, useImperativeHandle as Q } from "react";
-import { I as _ } from "../../../chunks/index.js";
-import { M as d } from "../../../chunks/index2.js";
+import { I as _ } from "../../../chunks/index2.js";
+import { M as d } from "../../../chunks/index3.js";
 import { useSaveForm as q } from "../hooks/useSaveForm.js";
 import { getTitle as N } from "../util/TitleUtil.js";
 import { EditForm as z } from "./EditForm.js";
@@ -14,13 +14,13 @@ const oe = H((e, D) => {
   const S = () => {
     s(void 0), u();
   }, M = (i) => {
-    s(void 0), g(), u(), e.onSaveSuccess(i);
+    s(void 0), g(), u(), e.onSaveSuccess?.(i);
   }, g = () => {
     R.current += 1, f.current.refresh();
   }, k = (i) => {
-    e.onSaveFailure(i);
+    e.onSaveFailure?.(i);
   }, x = (i) => {
-    e.onSaveSuccess(i);
+    e.onSaveSuccess?.(i);
   }, I = (i) => (S(), !1);
   o !== void 0 && !m && w();
   const {

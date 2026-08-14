@@ -4,8 +4,8 @@ import { useNavigate as g } from "react-router-dom";
 import { toast as a } from "react-toastify";
 import { PalmyraNewForm as w } from "@palmyralabs/rt-forms";
 import { Button as l } from "@mantine/core";
-import { I as b } from "../../../chunks/index.js";
-import { F as v } from "../../../chunks/index3.js";
+import { I as b } from "../../../chunks/index2.js";
+import { F as v } from "../../../chunks/index.js";
 import { getTitle as D } from "../util/TitleUtil.js";
 function V(t) {
   const m = g(), [s, f] = p(!1), n = N(null), d = t.initialData || {}, u = t.pageName, i = t.errorText, h = () => {

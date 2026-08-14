@@ -4,5 +4,5 @@ interface IOptions {
     treeStore: TreeQueryStore<any, any>;
     iconProvider?: IconProvider;
 }
-declare const DynamicMenu: (props: IOptions) => import("react/jsx-runtime").JSX.Element;
+declare const DynamicMenu: (props: IOptions) => import("react").JSX.Element;
 export default DynamicMenu;

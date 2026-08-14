@@ -62,6 +62,7 @@ interface IGridInput {
     getPluginOptions?: PalmyraGridOptions<any>['getPluginOptions'];
     DataGridControls?: (props: DataGridPluginOptions) => JSX.Element;
     onDataChange?: (newData: any[], oldData?: any[]) => void;
+    onFetchFailure?: (error: any) => void;
 }
 interface ISummaryGridInput extends IPageInput, IGridInput {
     densityOptions?: any;

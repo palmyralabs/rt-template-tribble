@@ -10,5 +10,5 @@ interface IFormInput {
     formRef: RefObject<ISaveForm>;
     customDataSection?: any;
 }
-declare function NewForm(props: IFormInput): import("react/jsx-runtime").JSX.Element;
+declare function NewForm(props: IFormInput): import("react").JSX.Element;
 export { NewForm };

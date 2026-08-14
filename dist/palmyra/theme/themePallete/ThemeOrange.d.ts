@@ -1,1 +1,1 @@
-export declare const ThemeOrange: () => import("react/jsx-runtime").JSX.Element;
+export declare const ThemeOrange: () => import("react").JSX.Element;

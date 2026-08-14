@@ -12,5 +12,5 @@ interface IFormInput {
     formRef: RefObject<ISaveForm>;
     customDataSection?: any;
 }
-declare function EditForm(props: IFormInput): import("react/jsx-runtime").JSX.Element;
+declare function EditForm(props: IFormInput): import("react").JSX.Element;
 export { EditForm };

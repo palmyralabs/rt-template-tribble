@@ -3,5 +3,5 @@ interface IGridInput extends ISummaryGridInput {
     gridRef?: any;
     clickTo?: 'view' | 'edit';
 }
-declare function SummaryGrid(props: IGridInput): import("react/jsx-runtime").JSX.Element;
+declare function SummaryGrid(props: IGridInput): import("react").JSX.Element;
 export { SummaryGrid };
