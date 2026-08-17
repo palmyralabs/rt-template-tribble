@@ -76,7 +76,8 @@ function SummaryPopupGrid(props: IPopupGridInput) {
             DataGridControls={DataGridControls} onRowClick={rowClick} defaultParams={props.defaultParams}
             endPoint={props.options.endPoint} endPointOptions={props.options.endPointOptions}
             pageSize={props.pageSize} {...props.options} getPluginOptions={props.getPluginOptions}
-            onFetchFailure={props.onFetchFailure} filter={props.filter}
+            onFetchFailure={props.onFetchFailure}
+            initParams={props.filter ? { filter: props.filter } : undefined}
             ref={gridRef} customizer={props.customizer} quickSearch={props.quickSearch} showFooter={props.showFooter} />
         <PopupForm {...props} gridRef={gridRef} ref={dialogFormRef} />
     </div>
