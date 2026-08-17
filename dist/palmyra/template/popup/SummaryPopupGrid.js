@@ -1,6 +1,6 @@
 import { jsxs as C, jsx as m } from "react/jsx-runtime";
 import { useRef as u, useEffect as D } from "react";
-import { topic as t } from "@palmyralabs/ts-utils";
+import { topic as i } from "@palmyralabs/ts-utils";
 import { PalmyraGrid as v } from "@palmyralabs/rt-forms-mantine";
 import { SummaryDialogForm as y } from "./SummaryDialogForm.js";
 import { SummaryDrawerForm as N } from "./SummaryDrawerForm.js";
@@ -8,24 +8,24 @@ import { PopupGridControls as R } from "./PopupGridControls.js";
 import '../../../assets/Layout.css';/* empty css                     */
 import { getTitle as S } from "../util/TitleUtil.js";
 function q(e) {
-  const s = e.pageName + "/viewPage", l = e.pageName + "/newPage", d = e.pageName + "/refresh", f = e.popup || "drawer", a = u(null), o = e.gridRef || u(null);
+  const l = e.pageName + "/viewPage", s = e.pageName + "/newPage", f = e.pageName + "/refresh", d = e.popup || "drawer", a = u(null), r = e.gridRef || u(null);
   D(() => {
-    var i = t.subscribe(s, (c, n) => {
-      r(n);
-    }), b = t.subscribe(d, (c) => {
-      o.current && o.current.refresh();
-    }), F = t.subscribe(l, (c, n) => {
-      r(n);
+    var t = i.subscribe(l, (c, n) => {
+      o(n);
+    }), b = i.subscribe(f, (c) => {
+      r.current && r.current.refresh();
+    }), F = i.subscribe(s, (c, n) => {
+      o(n);
     });
     return () => {
-      t.unsubscribe(i), t.unsubscribe(F), t.unsubscribe(b);
+      i.unsubscribe(t), i.unsubscribe(F), i.unsubscribe(b);
     };
   }, []);
-  const g = (i) => {
-    r(i);
-  }, r = (i) => {
-    a.current && a.current.setData(i);
-  }, P = e.DataGridControls || R, w = f == "drawer" ? N : y, h = e.disableRowClick ? () => {
+  const g = (t) => {
+    o(t);
+  }, o = (t) => {
+    a.current && a.current.setData(t);
+  }, P = e.DataGridControls || R, w = d == "drawer" ? N : y, h = e.disableRowClick ? () => {
   } : g;
   return /* @__PURE__ */ C("div", { className: "py-grid-container", children: [
     /* @__PURE__ */ m(
@@ -33,7 +33,7 @@ function q(e) {
       {
         title: S(e.title, "grid"),
         columns: e.columns,
-        DataGridControlProps: { setFormData: r },
+        DataGridControlProps: { setFormData: o },
         pagination: e.pagination,
         onDataChange: e.onDataChange,
         lsKey: e.lsKey,
@@ -46,13 +46,14 @@ function q(e) {
         ...e.options,
         getPluginOptions: e.getPluginOptions,
         onFetchFailure: e.onFetchFailure,
-        ref: o,
+        initParams: e.filter ? { filter: e.filter } : void 0,
+        ref: r,
         customizer: e.customizer,
         quickSearch: e.quickSearch,
         showFooter: e.showFooter
       }
     ),
-    /* @__PURE__ */ m(w, { ...e, gridRef: o, ref: a })
+    /* @__PURE__ */ m(w, { ...e, gridRef: r, ref: a })
   ] });
 }
 export {

@@ -1,38 +1,39 @@
 import { jsx as n } from "react/jsx-runtime";
 import { useRef as u } from "react";
-import { SummaryGridControls as s } from "./SummaryGridControls.js";
-import { useNavigate as f } from "react-router-dom";
-import { StringFormat as h } from "@palmyralabs/ts-utils";
+import { SummaryGridControls as f } from "./SummaryGridControls.js";
+import { useNavigate as s } from "react-router-dom";
+import { StringFormat as P } from "@palmyralabs/ts-utils";
 import '../../../assets/Layout.css';/* empty css                     */
-import { PalmyraGrid as C } from "@palmyralabs/rt-forms-mantine";
-import { getTitle as P } from "../util/TitleUtil.js";
-function v(i) {
-  const t = f(), o = i.idKey || "id", e = i.gridRef || u(null), a = (d) => {
-    const m = { id: d[o] }, g = i.clickTo || "view";
-    t(h(g + "/{id}", m));
+import { PalmyraGrid as h } from "@palmyralabs/rt-forms-mantine";
+import { getTitle as C } from "../util/TitleUtil.js";
+function D(i) {
+  const t = s(), e = i.idKey || "id", o = i.gridRef || u(null), a = (d) => {
+    const m = { id: d[e] }, g = i.clickTo || "view";
+    t(P(g + "/{id}", m));
   }, r = () => {
     t("new");
-  }, c = i.DataGridControls || s, l = i.disableRowClick ? () => {
+  }, l = i.DataGridControls || f, c = i.disableRowClick ? () => {
   } : a;
   return /* @__PURE__ */ n("div", { className: "py-grid-container", children: /* @__PURE__ */ n(
-    C,
+    h,
     {
-      title: P(i.title, "grid"),
+      title: C(i.title, "grid"),
       lsKey: i.lsKey,
       columns: i.columns,
       pagination: i.pagination,
       pageSize: i.pageSize,
       getPluginOptions: i.getPluginOptions,
       defaultParams: i.defaultParams,
-      DataGridControls: c,
+      DataGridControls: l,
       DataGridControlProps: { newRecord: r },
       endPoint: i.options.endPoint,
       endPointOptions: i.options.endPointOptions,
-      onRowClick: l,
+      onRowClick: c,
       ...i.options,
       onDataChange: i.onDataChange,
       onFetchFailure: i.onFetchFailure,
-      ref: e,
+      initParams: i.filter ? { filter: i.filter } : void 0,
+      ref: o,
       customizer: i.customizer,
       quickSearch: i.quickSearch,
       showFooter: i.showFooter
@@ -40,5 +41,5 @@ function v(i) {
   ) });
 }
 export {
-  v as SummaryGrid
+  D as SummaryGrid
 };
