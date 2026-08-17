@@ -72,6 +72,7 @@ interface IGridInput {
     DataGridControls?: (props: DataGridPluginOptions) => JSX.Element;
     onDataChange?: (newData: any[], oldData?: any[]) => void;
     onFetchFailure?: (error: any) => void;
+    filter?: any
 }
 
 interface ISummaryGridInput extends IPageInput, IGridInput {
