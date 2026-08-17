@@ -6,5 +6,3 @@ export { EditForm } from './form/EditForm';
 export { ViewForm } from './form/ViewForm';
 export * from './menu';
 export * from './Types';
-export { createErrorHandlerFactory, API_ERROR_TOPIC } from './util/errorToast';
-export type { ApiErrorInfo, CreateErrorHandlerFactoryOpts } from './util/errorToast';
