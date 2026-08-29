@@ -1,4 +1,4 @@
-import { IEndPoint, IEndPointOptions } from '@palmyralabs/palmyra-wire';
+import { IEndPoint, IEndPointOptions, MultiEndPoint } from '@palmyralabs/palmyra-wire';
 import { DataGridPluginOptions, IExportOptions, PalmyraGridOptions } from '@palmyralabs/rt-forms';
 import { FC, JSX } from 'react';
 type ITitle = string | {
@@ -32,7 +32,14 @@ interface IFormEditInput extends IPageInput {
     options: IOptions;
     id: string;
     children?: any;
+    endPoint: string | MultiEndPoint;
+    onSaveSuccess?: (data: any) => void;
+    onSaveFailure?: (e: any) => void;
+    preSave?: (data: any) => any;
     onDataRefresh?: (data: any) => void;
+    aclCode?: string;
+    formRef?: any;
+    customRequestData?: Record<string, any>;
     successMsg?: string;
 }
 interface IFormNewInput extends IPageInput, IFormInput {
@@ -41,6 +48,15 @@ interface IFormNewInput extends IPageInput, IFormInput {
     id?: string;
     initialData?: {};
     successMsg?: string;
+    endPoint: string;
+    formListener?: any;
+    aclCode?: string;
+    onSaveSuccess?: (data: any) => void;
+    onSaveFailure?: (e: any) => void;
+    onQueryData?: (e: any) => void;
+    preSave?: (data: any) => any;
+    formRef?: any;
+    customRequestData?: Record<string, any>;
 }
 interface IFormViewInput extends IPageInput, IFormInput {
     options: IOptions;
