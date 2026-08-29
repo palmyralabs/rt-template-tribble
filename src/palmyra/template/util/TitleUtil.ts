@@ -2,7 +2,10 @@ import { ITitle } from "../Types"
 
 type Keys = 'grid' | 'edit' | 'new' | 'view';
 
-const getTitle = (o: ITitle, key?: Keys) => {
+const getTitle = (o?: ITitle, key?: Keys): string | undefined => {
+    if (!o) {
+        return undefined;
+    }
     if (typeof o == 'string') {
         return o;
     }
@@ -13,3 +16,4 @@ const getTitle = (o: ITitle, key?: Keys) => {
 }
 
 export { getTitle }
+export type { Keys as ITitleKey }
