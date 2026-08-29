@@ -10,7 +10,7 @@ type ITitle = string | {
 };
 
 interface IPageInput {
-    title?: String,
+    title?: ITitle | String,
     pageName: string,
     errorText?: any
 }
