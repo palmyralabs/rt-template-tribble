@@ -10,7 +10,7 @@ type ITitle = string | {
 };
 
 interface IPageInput {
-    title?: ITitle,
+    title?: String,
     pageName: string,
     errorText?: any
 }
@@ -35,7 +35,7 @@ interface IFormInput {
 }
 
 interface IFormEditInput extends IPageInput {
-    options: IOptions,
+    options?: IOptions,
     id: string,
     children?: any,
     endPoint: string | MultiEndPoint
@@ -51,7 +51,7 @@ interface IFormEditInput extends IPageInput {
 }
 
 interface IFormNewInput extends IPageInput, IFormInput {
-    options: IOptions,
+    options?: IOptions,
     children?: any,
     id?: string,
     initialData?: {},
