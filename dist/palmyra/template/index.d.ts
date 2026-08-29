@@ -6,3 +6,5 @@ export { EditForm } from './form/EditForm';
 export { ViewForm } from './form/ViewForm';
 export * from './menu';
 export * from './Types';
+export { getTitle } from './util/TitleUtil';
+export type { ITitleKey } from './util/TitleUtil';

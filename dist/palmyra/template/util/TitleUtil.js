@@ -1,4 +1,7 @@
-const r = (t, e) => typeof t == "string" ? t : e ? t[e] : t.grid || t.view || t.edit || t.new;
+const e = (r, t) => {
+  if (r)
+    return typeof r == "string" ? r : t ? r[t] : r.grid || r.view || r.edit || r.new;
+};
 export {
-  r as getTitle
+  e as getTitle
 };
