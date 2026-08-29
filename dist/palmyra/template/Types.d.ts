@@ -29,7 +29,7 @@ interface IFormInput {
     onCancel?: () => void;
 }
 interface IFormEditInput extends IPageInput {
-    options: IOptions;
+    options?: IOptions;
     id: string;
     children?: any;
     endPoint: string | MultiEndPoint;
@@ -43,7 +43,7 @@ interface IFormEditInput extends IPageInput {
     successMsg?: string;
 }
 interface IFormNewInput extends IPageInput, IFormInput {
-    options: IOptions;
+    options?: IOptions;
     children?: any;
     id?: string;
     initialData?: {};
