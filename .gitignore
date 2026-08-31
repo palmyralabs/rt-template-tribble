@@ -89,7 +89,8 @@ out
 
 # Nuxt.js build / generate output
 .nuxt
-dist
+# dist -- NOT ignored: this package is consumed as a git dependency,
+# so the built output must be committed for installers to receive it.
 
 # Gatsby files
 .cache/
