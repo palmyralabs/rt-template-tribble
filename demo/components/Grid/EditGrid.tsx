@@ -1,9 +1,10 @@
 import { ColumnDefinition } from "@palmyralabs/rt-forms";
-import { IEndPoint } from "@palmyralabs/palmyra-wire";
 import { SummaryGrid } from "../../../src/main";
+import { useDemoConfig, StoreScope } from "../../config/DemoConfigContext";
 
 
 function EditGrid(props: any) {
+    const { grids } = useDemoConfig();
     const fields: ColumnDefinition[] = [
         {
             attribute: "name",
@@ -23,18 +24,16 @@ function EditGrid(props: any) {
         }
     ];
 
-    const endPoint: IEndPoint = {
-        get: 'district/{id}.json',
-        query: 'district/SummaryData.json', put: 'district/{id}.json',
-        post: 'district/new.json'
-    }
+    const endPoint = grids.editGrid.endpoint;
 
     return (
-        <SummaryGrid grid="edit"
-            columns={fields}
-            pageName={props.pageName}
-            title={"Summary Edit Grid"}
-            options={{ endPoint }} />
+        <StoreScope baseUrl={grids.editGrid.baseUrl}>
+            <SummaryGrid grid="edit"
+                columns={fields}
+                pageName={props.pageName}
+                title={"Summary Edit Grid"}
+                options={{ endPoint }} />
+        </StoreScope>
     );
 }
 

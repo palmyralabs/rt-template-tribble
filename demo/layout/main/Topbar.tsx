@@ -1,6 +1,7 @@
 
 import './Topbar.css';
 import { ProfileIcon } from '../../../src/main';
+import SettingsPanel from './SettingsPanel';
 
 interface TopbarProps {
   mobileOpen?: boolean,
@@ -15,7 +16,10 @@ const Topbar: React.FC<TopbarProps> = ({ mobileOpen, setMobileOpen, display }) =
 
   return (
     <div className='topbar'>
-      <ProfileIcon displayName='guest' />
+      <div className='topbar-right'>
+        <SettingsPanel />
+        <ProfileIcon displayName='guest' />
+      </div>
     </div>
   );
 };

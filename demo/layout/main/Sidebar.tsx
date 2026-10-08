@@ -23,9 +23,12 @@ const Sidebar = (props: SidebarInput) => {
 
   return <div className="sidebar">
     <div className="sidebar-header">
-      Sidebar Header
+      <span className="sidebar-brand-dot" />
+      {props.appTitle}
     </div>
-    <DynamicMenu treeStore={treeStore} iconProvider={SimpleIconProvider} />
+    <div className="sidebar-middle">
+      <DynamicMenu treeStore={treeStore} iconProvider={SimpleIconProvider} />
+    </div>
   </div>
 };
 

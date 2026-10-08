@@ -1,0 +1,93 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: var(--body-bgcolor, #f5f7fb);
+    font-family: Inter, Rubik, system-ui, -apple-system, "Segoe UI", sans-serif;
+    color: var(--default-text-color, #1f2430);
+}
+
+body,
+body * {
+    font-weight: 400 !important;
+}
+
+.sidebar .sidebar-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 18px 16px;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    color: var(--secondary-text-color, #ffffff);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.sidebar-brand-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--primary-color, #0c77e3);
+    box-shadow: 0 0 0 4px rgba(var(--primary-color-rgb, 12, 119, 227), 0.25);
+}
+
+.sidebar-middle {
+    padding: 8px 6px;
+}
+
+.topbar {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 8px;
+}
+
+.py-grid-container {
+    padding: 20px 22px;
+}
+
+.py-grid-container .py-data-grid-table,
+.py-data-grid-table {
+    border-radius: 12px;
+    overflow: auto;
+    background: var(--default-bgcolor, #ffffff);
+    box-shadow: 0 1px 3px rgba(16, 24, 40, 0.06);
+}
+
+.py-grid-filter {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: 12px;
+    padding: 16px 18px;
+    margin-bottom: 4px;
+    background: var(--default-bgcolor, #ffffff);
+    border: 1px solid var(--border-color, #e6e8ee);
+    border-radius: 12px;
+    box-shadow: 0 1px 3px rgba(16, 24, 40, 0.05);
+}
+
+.py-grid-filter > * {
+    min-width: 220px;
+}
+
+.py-form-container {
+    padding: 22px;
+    max-width: 1180px;
+    margin: 0 auto;
+}
+
+.py-form-header-container {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    background: var(--default-bgcolor, #ffffff);
+    border: 1px solid var(--border-color, #e6e8ee);
+    border-radius: 14px;
+    padding: 14px 20px !important;
+    margin-bottom: 18px;
+    font-size: 20px !important;
+    font-weight: 500;
+    box-shadow: 0 2px 6px rgba(16, 24, 40, 0.06);
+}

@@ -1,27 +1,20 @@
 import { useParams } from "react-router-dom";
 import { EditForm } from "../../../src/main";
-
-import { IEndPoint } from "@palmyralabs/palmyra-wire";
-import { TextField } from "../../form";
-
+import ProjectFormlet from "./ProjectFormlet";
+import { useDemoConfig, StoreScope } from "../../config/DemoConfigContext";
 
 const SummaryGridEditForm = () => {
     const params: any = useParams();
+    const { getProjectEndPoint, grids } = useDemoConfig();
 
-    const endPoint: IEndPoint = {
-        get: 'district/{id}.json',
-        query: 'district/SummaryData.json', put: 'district/{id}.json',
-        post: 'district/new.json'
-    }
-
-
-    return (<>
-        <EditForm pageName="SummaryGridEditForm" id={params.id} options={{ endPoint: endPoint }}
-             title="Edit Form">
-            <TextField attribute="name" label="District" />
-        </EditForm>
-    </>)
-
-}
+    return (
+        <StoreScope baseUrl={grids.project.baseUrl}>
+            <EditForm pageName="grid" id={params.id} options={{ endPoint: getProjectEndPoint() }}
+                title="Edit Project">
+                <ProjectFormlet />
+            </EditForm>
+        </StoreScope>
+    );
+};
 
 export default SummaryGridEditForm;

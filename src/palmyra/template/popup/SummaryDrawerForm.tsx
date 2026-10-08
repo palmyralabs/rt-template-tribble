@@ -55,7 +55,7 @@ const SummaryDrawerForm = forwardRef((props: IDialogGridFormInput, ref: RefObjec
     const onComplete = (d) => {
         setData(undefined)
         onSave();
-        props.onSaveSuccess(d)
+        props.onSaveSuccess?.(d)
     }
 
     const onSave = () => {
@@ -69,11 +69,11 @@ const SummaryDrawerForm = forwardRef((props: IDialogGridFormInput, ref: RefObjec
     }
 
     const handleError = (e) => {
-        props.onSaveFailure(e)
+        props.onSaveFailure?.(e)
     }
 
     const handleOnSave = (d) => {
-        props.onSaveSuccess(d)
+        props.onSaveSuccess?.(d)
     }
 
     const { doCancel, doSaveClose, doSaveNew, handleKeyPress,

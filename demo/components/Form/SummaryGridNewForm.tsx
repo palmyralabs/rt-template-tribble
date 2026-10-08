@@ -1,15 +1,18 @@
 import { NewForm } from "../../../src/main";
-import { TextField } from "../../form";
-
+import ProjectFormlet from "./ProjectFormlet";
+import { useDemoConfig, StoreScope } from "../../config/DemoConfigContext";
 
 const SummaryGridNewForm = () => {
+    const { getProjectEndPoint, grids } = useDemoConfig();
 
-    return (<>
-        <NewForm options={{ endPoint: '/masterdata/district' }} pageName="" title="New Form">
-            <TextField attribute="name" label="District" />
-        </NewForm>
-    </>)
-
-}
+    return (
+        <StoreScope baseUrl={grids.project.baseUrl}>
+            <NewForm options={{ endPoint: getProjectEndPoint() }} pageName="grid"
+                title="New Project" successMsg="Project created successfully">
+                <ProjectFormlet />
+            </NewForm>
+        </StoreScope>
+    );
+};
 
 export default SummaryGridNewForm;
