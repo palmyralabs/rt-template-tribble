@@ -10,6 +10,9 @@ export { EditForm } from "./form/EditForm"
 export { ViewForm } from "./form/ViewForm"
 export { SaveForm } from "./form/SaveForm"
 
+export { PageHeader } from "./pageHeader/PageHeader"
+export type { PageHeaderProps, Breadcrumb, WorkflowAction, StatusInfo } from "./pageHeader/PageHeader"
+
 export { SummaryDialogForm } from "./popup/SummaryDialogForm"
 export type { IDialogForm, IDialogGridFormInput } from "./popup/SummaryDialogForm"
 export { SummaryDrawerForm } from "./popup/SummaryDrawerForm"
