@@ -1,8 +1,8 @@
 import { ColumnDefinition, PalmyraForm } from "@palmyralabs/rt-forms";
-import { SummaryGrid, ITemplateGridControlConfig } from "../../../src/main";
+import { SummaryGrid, ITemplateGridControlConfig, DialogNewForm } from "../../../src/main";
+import ProjectFormlet from "../Form/ProjectFormlet";
 import { containsFilter, MantineServerLookup, MantineTextField, useGridPersistedFilter } from "@palmyralabs/rt-forms-mantine";
 import { useEffect, useRef, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { MdClose } from "react-icons/md";
 import { Button } from "@mantine/core";
 import { FiDownload } from "react-icons/fi";
@@ -10,8 +10,8 @@ import { useDemoConfig, StoreScope } from "../../config/DemoConfigContext";
 
 
 function Grid(props: any) {
-    const { grids, lookups } = useDemoConfig();
-    const navigate = useNavigate();
+    const { grids, lookups, getProjectEndPoint } = useDemoConfig();
+    const [dialogOpen, setDialogOpen] = useState(false);
     const fields: ColumnDefinition[] = [
         // {
         //     attribute: "name",
@@ -256,7 +256,7 @@ function Grid(props: any) {
 
     const getPluginOptions = (): ITemplateGridControlConfig => ({
         addText: 'Add Project',
-        onNewClick: () => navigate('new'),
+        onNewClick: () => setDialogOpen(true),
         aclCode: 'PROJECT.POST',
         aclCheck: () => true,
         filterField: FilterField,
@@ -278,6 +278,12 @@ function Grid(props: any) {
                 options={{ endPoint }}
                 getPluginOptions={getPluginOptions}
                 pageSize={[5, 10, 20]} />
+            <DialogNewForm open={dialogOpen} onClose={() => setDialogOpen(false)}
+                title="New Project" size="xl" successMsg="Project created"
+                options={{ endPoint: getProjectEndPoint() }}
+                onRefresh={() => gridRef.current?.refresh()}>
+                <ProjectFormlet />
+            </DialogNewForm>
         </StoreScope>);
 }
 

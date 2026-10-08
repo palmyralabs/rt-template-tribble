@@ -1,0 +1,189 @@
+.py-del-dialog-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 20px;
+    background: #fef2f2;
+    border-bottom: 1px solid #fee2e2;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+
+.py-del-dialog-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #fee2e2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: #dc2626;
+}
+
+.py-del-dialog-heading {
+    flex: 1;
+}
+
+.py-del-dialog-title {
+    font-size: 14px;
+    font-weight: 500;
+    color: #b91c1c;
+    line-height: 1.2;
+    margin: 0;
+}
+
+.py-del-dialog-sub {
+    font-size: 12px;
+    color: #ef4444;
+    margin: 2px 0 0;
+}
+
+.py-del-dialog-close {
+    width: 28px;
+    height: 28px;
+    border: none;
+    background: transparent;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #9ca3af;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.py-del-dialog-close:hover {
+    color: #4b5563;
+    background: #f3f4f6;
+}
+
+.py-del-dialog-body {
+    padding: 16px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.py-del-dialog-warning {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px;
+    background: #fffbeb;
+    border: 1px solid #fde68a;
+    border-radius: 8px;
+}
+
+.py-del-dialog-warning p {
+    font-size: 14px;
+    color: #92400e;
+    line-height: 1.4;
+    margin: 0;
+}
+
+.py-del-dialog-warning-icon {
+    color: #f59e0b;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.py-del-dialog-strong {
+    font-weight: 500;
+}
+
+.py-del-dialog-records {
+    border: 1px solid var(--border-color, #e5e7eb);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.py-del-dialog-records-head {
+    padding: 8px 12px;
+    background: var(--body-bgcolor, #f9fafb);
+    border-bottom: 1px solid var(--border-color, #e5e7eb);
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--form-field-label-color, #6b7280);
+}
+
+.py-del-dialog-record {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 10px 12px;
+    border-top: 1px solid #f3f4f6;
+}
+
+.py-del-dialog-record:first-child {
+    border-top: none;
+}
+
+.py-del-dialog-record-label {
+    font-size: 12px;
+    color: var(--form-field-label-color, #6b7280);
+    width: 112px;
+    flex-shrink: 0;
+    padding-top: 1px;
+}
+
+.py-del-dialog-record-value {
+    font-size: 12px;
+    color: var(--default-text-color, #1f2937);
+    flex: 1;
+    word-break: break-word;
+}
+
+.py-del-dialog-footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 8px;
+    padding: 12px 20px;
+    border-top: 1px solid var(--border-color, #f3f4f6);
+}
+
+.py-del-dialog-cancel {
+    padding: 6px 16px;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    color: var(--default-text-color, #4b5563);
+    background: #f3f4f6;
+    transition: background 0.2s ease;
+}
+
+.py-del-dialog-cancel:hover {
+    background: #e5e7eb;
+}
+
+.py-del-dialog-delete {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 16px;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    color: #ffffff;
+    background: #dc2626;
+    box-shadow: 0 1px 2px rgba(16, 24, 40, 0.12);
+    transition: background 0.2s ease;
+}
+
+.py-del-dialog-delete:hover {
+    background: #b91c1c;
+}
+
+.py-del-dialog-delete:disabled {
+    background: #e5e7eb;
+    color: #9ca3af;
+    cursor: not-allowed;
+    box-shadow: none;
+}
