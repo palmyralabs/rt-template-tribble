@@ -47,7 +47,7 @@ function SummaryGrid(props: IGridInput) {
             <PalmyraGrid title={getTitle(props.title, 'grid')} lsKey={props.lsKey}
                 columns={props.columns} pagination={props.pagination} pageSize={props.pageSize}
                 getPluginOptions={props.getPluginOptions} defaultParams={props.defaultParams}
-                DataGridControls={DataGridControls} DataGridControlProps={{ newRecord }}
+                DataGridControls={DataGridControls} DataGridControlProps={{ newRecord, exportOptions: props.exportOptions }}
                 endPoint={props.options.endPoint} endPointOptions={props.options.endPointOptions}
                 onRowClick={rowClick}  {...props.options} onDataChange={props.onDataChange}
                 onFetchFailure={props.onFetchFailure}

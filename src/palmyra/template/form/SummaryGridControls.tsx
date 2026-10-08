@@ -17,7 +17,7 @@ const SummaryGridControls = (props: SummaryGridPluginOptions) => {
     const showColumnChooser = columnChooser.visible !== false
         && Array.isArray(o.columns) && o.columns.length > 0;
 
-    const exportOption = pluginOptions.exportFormats || { csv: 'CSV' };
+    const exportOption = pluginOptions.exportFormats || o.exportOptions || { csv: 'CSV' };
     const addVisible = isAddVisible(pluginOptions);
     const handleAdd = pluginOptions.onNewClick || (() => props.newRecord());
     const activeFilters = countActiveFilters(pluginOptions.filters);

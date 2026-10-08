@@ -45,10 +45,16 @@ interface IFormEditInput extends IPageInput {
     onSaveFailure?: (e: any) => void;
     preSave?: (data: any) => any;
     onDataRefresh?: (data: any) => void
+    onQueryData?: (data: any) => any
     aclCode?: string
+    aclCheck?: (code?: string) => boolean
     formRef?: any
     customRequestData?: Record<string, any>
     successMsg?: string
+    saveOverride?: (formData: any) => Promise<any>
+    saveDisabled?: boolean
+    customBtn?: ReactNode
+    headerContent?: ReactNode
 }
 
 interface IFormNewInput extends IPageInput, IFormInput {
@@ -60,18 +66,33 @@ interface IFormNewInput extends IPageInput, IFormInput {
     endPoint: string
     formListener?: any
     aclCode?: string,
+    aclCheck?: (code?: string) => boolean
     onSaveSuccess?: (data: any) => void;
     onSaveFailure?: (e: any) => void;
     onQueryData?: (e: any) => void;
     preSave?: (data: any) => any;
     formRef?: any
     customRequestData?: Record<string, any>
+    saveOverride?: (formData: any) => Promise<any>
+    saveDisabled?: boolean
+    customBtn?: ReactNode
+    headerContent?: ReactNode
 }
 
 interface IFormViewInput extends IPageInput, IFormInput {
     options: IOptions,
     id: string,
     children: any
+    customBtn?: ReactNode
+    headerContent?: ReactNode
+    leftContent?: ReactNode
+    onQueryData?: (data: any) => any
+    formRef?: any
+    aclCode?: string
+    aclCheck?: (code?: string) => boolean
+    showEditButton?: boolean
+    showBackButton?: boolean
+    isEnableEdit?: boolean
 }
 
 interface IGridInput {
@@ -102,10 +123,12 @@ interface ISummaryGridInput extends IPageInput, IGridInput {
 
 interface SummaryGridPluginOptions extends DataGridPluginOptions {
     newRecord: () => void
+    exportOptions?: IExportOptions
 }
 
 interface PopupGridPluginOptions extends DataGridPluginOptions {
     setFormData: (d: any) => void
+    exportOptions?: IExportOptions
 }
 
 interface ITemplateGridControlConfig extends IDataGridDefaultControlConfig {

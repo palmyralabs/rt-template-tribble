@@ -13,10 +13,12 @@ function NewForm(props: IFormNewInput) {
 
     const navigate = useNavigate();
     const [isValid, setValid] = useState<boolean>(false);
-    const formRef = useRef<ISaveForm>(null);
+    const formRef = props.formRef ? props.formRef : useRef<ISaveForm>(null);
     const initialData = props.initialData || {};
     const pageName = props.pageName;
     const errorText = props.errorText;
+
+    const isAclAccess = props.aclCode ? (props.aclCheck ? props.aclCheck(props.aclCode) : true) : true;
 
     const showServerErrorToast = () => {
         toast.error("Something went wrong Please try again later.. ")
@@ -29,14 +31,35 @@ function NewForm(props: IFormNewInput) {
         }
     };
 
+    const prepareRequestData = (ref: any, customProps?: any) => {
+        const oldData = ref?.current?.getData() || {};
+        const mergedData = { ...oldData, ...(customProps || {}) };
+        ref.current?.setData(mergedData);
+        return mergedData;
+    };
+
     const saveFormData = () => {
-        formRef.current.saveData().then((_d: any) => {
+        if (!isAclAccess) {
+            toast.error("You do not have permission to perform this action");
+            return;
+        }
+        if (props.customRequestData) {
+            prepareRequestData(formRef, props.customRequestData);
+        }
+        const saving = props.saveOverride
+            ? props.saveOverride(formRef.current?.getData())
+            : formRef.current.saveData();
+        saving.then(async (_d: any) => {
             if (_d) {
                 if (props.successMsg)
                     toast.success(props.successMsg);
+                if (props.onSaveSuccess)
+                    await props.onSaveSuccess(_d);
                 return navigate('../' + pageName);
             }
         }).catch((e) => {
+            if (props.onSaveFailure)
+                props.onSaveFailure(e);
             if (e.response && e.response.status === 400) {
                 showUniqueErrorToast()
             } else if (e.response && e.response.status === 500) {
@@ -47,13 +70,13 @@ function NewForm(props: IFormNewInput) {
     const handleKeyPress = (event: any) => {
         if (event.ctrlKey && event.key === 's') {
             event.preventDefault();
-            if (isValid) {
+            if (isValid && !props.saveDisabled) {
                 saveFormData();
-            } else {
-                // show sweet alert
             }
         }
     };
+
+    const isDisabled = !(isValid && isAclAccess) || !!props.saveDisabled;
 
     return (
         <div className='py-form-container'>
@@ -61,19 +84,21 @@ function NewForm(props: IFormNewInput) {
                 <div className='py-form-header-container'>
                     <div>{getTitle(props.title, 'new')}</div>
                     <div className="py-form-header-button-container">
+                        {props.customBtn}
                         <Button
                             className='py-cancel-filled-button'
                             onClick={() => window.history.back()}
                             leftSection={<IoMdClose className="py-button-icon" />}>
                             Cancel
                         </Button>
-                        <Button disabled={!isValid}
-                            className={!isValid ? 'py-disabled-button' : 'py-filled-button'}
+                        <Button disabled={isDisabled}
+                            className={isDisabled ? 'py-disabled-button' : 'py-filled-button'}
                             onClick={saveFormData} leftSection={<FaCheck className="py-button-icon" />}>
                             <u>S</u>ave
                         </Button>
                     </div>
                 </div>
+                {props.headerContent}
                 <PalmyraNewForm onValidChange={setValid} {...props.options}
                     ref={formRef} initialData={initialData}>
                     {props.children}

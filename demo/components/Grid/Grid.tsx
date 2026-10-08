@@ -2,6 +2,7 @@ import { ColumnDefinition, PalmyraForm } from "@palmyralabs/rt-forms";
 import { SummaryGrid, ITemplateGridControlConfig } from "../../../src/main";
 import { containsFilter, MantineServerLookup, MantineTextField, useGridPersistedFilter } from "@palmyralabs/rt-forms-mantine";
 import { useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { MdClose } from "react-icons/md";
 import { Button } from "@mantine/core";
 import { FiDownload } from "react-icons/fi";
@@ -10,6 +11,7 @@ import { useDemoConfig, StoreScope } from "../../config/DemoConfigContext";
 
 function Grid(props: any) {
     const { grids, lookups } = useDemoConfig();
+    const navigate = useNavigate();
     const fields: ColumnDefinition[] = [
         // {
         //     attribute: "name",
@@ -232,15 +234,7 @@ function Grid(props: any) {
         setFilters({ projectId: '', section: '' });
     }
 
-    const getPluginOptions = (): ITemplateGridControlConfig => ({
-        addText: 'Add Project',
-        filters,
-        onClearFilters: clearFilters,
-        customBtn: <Button variant="light" size="compact-sm"
-            leftSection={<FiDownload size={14} />} onClick={() => { }}>Export PDF</Button>
-    });
-
-    const FilterField = <div className="py-grid-filter">
+    const FilterField = <div style={{ display: 'flex', gap: 8, alignItems: 'center', flexWrap: 'wrap' }}>
         <PalmyraForm formData={initialFormData}>
             <MantineTextField attribute="projectId" placeholder="Project ID"
                 label="" validRule={"string"} ref={projectIdRef}
@@ -260,9 +254,22 @@ function Grid(props: any) {
         </PalmyraForm>
     </div>
 
+    const getPluginOptions = (): ITemplateGridControlConfig => ({
+        addText: 'Add Project',
+        onNewClick: () => navigate('new'),
+        aclCode: 'PROJECT.POST',
+        aclCheck: () => true,
+        filterField: FilterField,
+        customBtn: <Button variant="light" size="compact-sm"
+            leftSection={<FiDownload size={14} />} onClick={() => { }}>Export PDF</Button>,
+        exportFormats: { csv: 'CSV', excel: 'Excel' },
+        filters,
+        setFilters,
+        onClearFilters: clearFilters
+    });
+
     return (
         <StoreScope baseUrl={grids.project.baseUrl}>
-            {FilterField}
             <SummaryGrid
                 gridRef={gridRef}
                 columns={fields}

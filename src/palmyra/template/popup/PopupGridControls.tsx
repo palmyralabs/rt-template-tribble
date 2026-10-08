@@ -22,7 +22,7 @@ const PopupGridControls = (props: PopupGridPluginOptions) => {
         return () => document.removeEventListener('keydown', onKey);
     }, [props.setFormData]);
 
-    const exportOption = pluginOptions.exportFormats || { csv: 'CSV' };
+    const exportOption = pluginOptions.exportFormats || o.exportOptions || { csv: 'CSV' };
     const addVisible = isAddVisible(pluginOptions);
     const handleAdd = pluginOptions.onNewClick || (() => props.setFormData({}));
     const activeFilters = countActiveFilters(pluginOptions.filters);
