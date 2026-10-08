@@ -17,6 +17,10 @@ interface IDialogGridFormInput {
     gridRef: any,
     title?: any,
     idKey?: string,
+    size?: string | number,
+    width?: string | number,
+    height?: string,
+    minWidth?: string,
     dialogHeight?: string,
     dialogWidth?: string,
     dialogMinWidth?: string
@@ -36,7 +40,10 @@ interface IDrawerForm {
 const SummaryDrawerForm = forwardRef((props: IDialogGridFormInput, ref: RefObject<IDrawerForm>) => {
 
     const idKey = props.idKey || 'id';
-    // const drawerWidth = props.dialogWidth || '600px';
+    const width = props.dialogWidth || props.width;
+    const height = props.dialogHeight || props.height;
+    const minWidth = props.dialogMinWidth || props.minWidth;
+    const drawerSize = props.size || width || '600px';
 
     const [data, setData] = useState<any>(undefined);
     const referenceCount = useRef<number>(0);
@@ -86,7 +93,12 @@ const SummaryDrawerForm = forwardRef((props: IDialogGridFormInput, ref: RefObjec
 
     const newCustomData = props.customDataSection?.new || ''
     const editCustomData = props.customDataSection?.edit || ''
-    return (<Drawer position="right" opened={drawerOpen} onClose={onCancel} title={formTitle}>
+    return (<Drawer position="right" opened={drawerOpen} onClose={onCancel} title={formTitle}
+        size={drawerSize}
+        styles={{
+            content: minWidth ? { minWidth } : undefined,
+            body: height ? { height, overflow: 'auto' } : undefined
+        }}>
         <div className="py-drawer-content-container">
             {data?.[idKey] ?
                 <EditForm setValid={setValid} formRef={formRef} onQueryFailure={onQueryFailure}

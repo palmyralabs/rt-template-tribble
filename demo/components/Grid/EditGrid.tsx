@@ -1,5 +1,6 @@
 import { ColumnDefinition } from "@palmyralabs/rt-forms";
 import { SummaryGrid } from "../../../src/main";
+import { toast } from "react-toastify";
 import { useDemoConfig, StoreScope } from "../../config/DemoConfigContext";
 
 
@@ -32,6 +33,7 @@ function EditGrid(props: any) {
                 columns={fields}
                 pageName={props.pageName}
                 title={"Summary Edit Grid"}
+                onRowClick={(row) => toast.info(`Row clicked: ${row.name ?? row.id ?? ''}`)}
                 options={{ endPoint }} />
         </StoreScope>
     );

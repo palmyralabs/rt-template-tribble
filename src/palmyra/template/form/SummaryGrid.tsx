@@ -9,7 +9,9 @@ import { getTitle } from "../util/TitleUtil";
 
 interface IGridInput extends ISummaryGridInput {
     gridRef?: any,
-    clickTo?: 'view' | 'edit'
+    clickTo?: 'view' | 'edit',
+    onRowClick?: (rowData: any) => void,
+    navigatePath?: string | ((rowData: any) => string)
 }
 
 function SummaryGrid(props: IGridInput) {
@@ -17,7 +19,17 @@ function SummaryGrid(props: IGridInput) {
     const idKey = props.idKey || 'id';
     const gridRef: any = props.gridRef || useRef(null);
 
-    const handleRowClick = (rowData) => {        
+    const handleRowClick = (rowData) => {
+        if (props.onRowClick) {
+            props.onRowClick(rowData);
+            return;
+        }
+        if (props.navigatePath) {
+            const path = typeof props.navigatePath === 'function'
+                ? props.navigatePath(rowData) : props.navigatePath;
+            navigate(path);
+            return;
+        }
         const data = { id: rowData[idKey] };
         const grid = props.clickTo || 'view'
         navigate(StringFormat(grid + '/{id}', data));

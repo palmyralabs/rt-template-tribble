@@ -28,6 +28,10 @@ interface IDialogGridFormInput {
         edit?: string;
     };
     idKey?: string,
+    size?: string | number,
+    width?: string | number,
+    height?: string,
+    minWidth?: string,
     dialogHeight?: string,
     dialogWidth?: string,
     dialogMinWidth?: string
@@ -41,9 +45,10 @@ interface IDialogForm {
 const SummaryDialogForm = forwardRef((props: IDialogGridFormInput, ref: RefObject<IDialogForm>) => {
     const [opened, { open, close }] = useDisclosure(false);
     const idKey = props.idKey || 'id';
-    // const height = props.dialogHeight || 'auto';
-    // const width = props.dialogWidth || 'auto';
-    // const minWidth = props.dialogMinWidth || '600px';
+    const width = props.dialogWidth || props.width;
+    const height = props.dialogHeight || props.height;
+    const minWidth = props.dialogMinWidth || props.minWidth;
+    const modalSize = props.size || width;
 
     const [data, setData] = useState<any>(undefined);
     const referenceCount = useRef<number>(0);
@@ -98,7 +103,11 @@ const SummaryDialogForm = forwardRef((props: IDialogGridFormInput, ref: RefObjec
     const editCustomData = props.customDataSection?.edit || ''
     return (<>
         <Modal opened={opened} onClose={doCancel} onKeyDown={handleKeyPress} title={formTitle}
-            centered>
+            centered size={modalSize}
+            styles={{
+                content: minWidth ? { minWidth } : undefined,
+                body: height ? { height, overflow: 'auto' } : undefined
+            }}>
             {data?.[idKey] ?
                 <EditForm setValid={setValid} formRef={formRef} onQueryFailure={onQueryFailure}
                     handleKeyPress={handleKeyPress} options={props.options} customDataSection={editCustomData}

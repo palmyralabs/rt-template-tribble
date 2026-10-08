@@ -67,6 +67,7 @@ function DialogGrid(props: any) {
         <StoreScope baseUrl={grids.dialogGrid.baseUrl}>
             <div className="py-grid-container">
                 <SummaryPopupGrid popup="dialog"
+                    size="xl"
                     NewFormlet={Formlet} EditFormlet={Formlet}
                     columns={fields}
                     pageName={props.pageName} errorText={"jhjh"}

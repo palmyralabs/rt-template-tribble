@@ -13,6 +13,7 @@ interface IPopupGridInput extends ISummaryGridInput {
     EditFormlet: FC,
     NewFormlet: FC,
     gridRef?: any,
+    size?: string | number,
     width?: any
     height?: string,
     minWidth?: string,
