@@ -1,8 +1,10 @@
 import { ColumnDefinition, PalmyraForm } from "@palmyralabs/rt-forms";
-import { SummaryGrid } from "../../../src/main";
+import { SummaryGrid, ITemplateGridControlConfig } from "../../../src/main";
 import { containsFilter, MantineServerLookup, MantineTextField, useGridPersistedFilter } from "@palmyralabs/rt-forms-mantine";
 import { useEffect, useRef, useState } from "react";
 import { MdClose } from "react-icons/md";
+import { Button } from "@mantine/core";
+import { FiDownload } from "react-icons/fi";
 import { useDemoConfig, StoreScope } from "../../config/DemoConfigContext";
 
 
@@ -224,6 +226,20 @@ function Grid(props: any) {
         return () => clearTimeout(timer);
     }, [filters.projectId, filters.section]);
 
+    const clearFilters = () => {
+        projectIdRef.current?.setValue('');
+        sectionRef.current?.setValue(null);
+        setFilters({ projectId: '', section: '' });
+    }
+
+    const getPluginOptions = (): ITemplateGridControlConfig => ({
+        addText: 'Add Project',
+        filters,
+        onClearFilters: clearFilters,
+        customBtn: <Button variant="light" size="compact-sm"
+            leftSection={<FiDownload size={14} />} onClick={() => { }}>Export PDF</Button>
+    });
+
     const FilterField = <div className="py-grid-filter">
         <PalmyraForm formData={initialFormData}>
             <MantineTextField attribute="projectId" placeholder="Project ID"
@@ -253,6 +269,7 @@ function Grid(props: any) {
                 pageName={props.pageName}
                 title={"Summary Grid"}
                 options={{ endPoint }}
+                getPluginOptions={getPluginOptions}
                 pageSize={[5, 10, 20]} />
         </StoreScope>);
 }

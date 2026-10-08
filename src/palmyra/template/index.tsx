@@ -1,7 +1,9 @@
 export * from './widgets'
 
 export { SummaryGrid } from "./form/SummaryGrid";
+export { SummaryGridControls } from "./form/SummaryGridControls";
 export { SummaryPopupGrid } from './popup/SummaryPopupGrid'
+export { PopupGridControls } from './popup/PopupGridControls'
 
 export { NewForm } from "./form/NewForm"
 export { EditForm } from "./form/EditForm"

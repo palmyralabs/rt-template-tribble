@@ -1,6 +1,7 @@
 import { IEndPoint, IEndPointOptions, MultiEndPoint } from "@palmyralabs/palmyra-wire"
 import { DataGridPluginOptions, IExportOptions, PalmyraGridOptions } from "@palmyralabs/rt-forms"
-import { FC, JSX } from "react"
+import { IDataGridDefaultControlConfig } from "@palmyralabs/rt-forms-mantine"
+import { FC, JSX, ReactNode } from "react"
 
 type ITitle = string | {
     grid?: string;
@@ -107,7 +108,22 @@ interface PopupGridPluginOptions extends DataGridPluginOptions {
     setFormData: (d: any) => void
 }
 
+interface ITemplateGridControlConfig extends IDataGridDefaultControlConfig {
+    addText?: string
+    addVisible?: boolean
+    onNewClick?: () => void
+    aclCode?: string
+    aclCheck?: (code?: string) => boolean
+    filterField?: ReactNode
+    customBtn?: ReactNode
+    exportFormats?: Record<string, string>
+    filters?: Record<string, any>
+    setFilters?: (f: Record<string, any>) => void
+    onClearFilters?: () => void
+}
+
 export type {
     IPageInput, IFormEditInput, IFormNewInput, IFormViewInput, ITitle,
-    ISummaryGridInput, IFormInput, IOptions, SummaryGridPluginOptions, PopupGridPluginOptions
+    ISummaryGridInput, IFormInput, IOptions, SummaryGridPluginOptions, PopupGridPluginOptions,
+    ITemplateGridControlConfig
 }
