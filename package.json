@@ -1,7 +1,15 @@
 {
   "name": "@palmyralabs/template-tribble",
-  "private": true,
   "version": "0.3.0",
+  "description": "Palmyra form, grid and menu page templates for React and Mantine",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/palmyralabs/rt-template-tribble.git"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
   "type": "module",
   "main": "dist/main.js",
   "types": "dist/main.d.ts",
@@ -19,7 +27,7 @@
     "start": "vite",
     "dev": "vite",
     "demoBuild": "tsc && vite build",
-    "build": "tsc --p ./build.tsconfig.json && vite --config vite.config.js build",
+    "build": "tsc --p ./build.tsconfig.json && vite --config vite.config.ts build",
     "compile": "tsc --p ./demo.tsconfig.json && tsc --p ./build.tsconfig.json",
     "preview": "vite preview",
     "prepublishOnly": "npm run build",
@@ -34,6 +42,7 @@
     "glob": "^11.0.3",
     "serve-static": "^2.2.0",
     "typescript": "^5.9.3",
+    "usehooks-ts": "^3.1.1",
     "vite": "^7.1.9",
     "vite-plugin-dts": "^4.5.4",
     "vite-plugin-lib-inject-css": "^2.2.2"
@@ -43,16 +52,16 @@
   ],
   "peerDependencies": {
     "@mantine/core": "^9.1.0",
+    "@mantine/hooks": "^9.1.0",
     "@palmyralabs/palmyra-wire": "^1.2.0",
-    "@palmyralabs/rt-forms": "github:palmyralabs/rt-forms",
-    "@palmyralabs/rt-forms-mantine": "github:palmyralabs/rt-forms-mantine",
-    "@palmyralabs/ts-predicates": "github:palmyralabs/ts-predicates",
-    "@tanstack/react-table": "^8.21.3",
-    "classnames": "^2.5.1",
-    "react-icons": "^5.5.0",    
-    "react-syntax-highlighter": "^15.6.6",
-    "react-toastify": "^11.0.5",
-    "usehooks-ts": "^3.1.1"
+    "@palmyralabs/rt-forms": "^0.3.0",
+    "@palmyralabs/rt-forms-mantine": "^0.3.0",
+    "@palmyralabs/ts-utils": "^0.3.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "react-icons": "^5.5.0",
+    "react-router-dom": "^7.9.4",
+    "react-toastify": "^11.0.5"
   },
   "overrides": {
     "glob": "^11.0.3"
