@@ -140,3 +140,15 @@
 .py-selectable-pagination-container {
     margin-top: 10px;
 }
+
+.py-grid-selection-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 8px 14px;
+    margin-bottom: 8px;
+    border-radius: 8px;
+    background: rgba(var(--primary-bgcolor-rgb), 0.08);
+    border: 1px solid var(--border-color);
+}

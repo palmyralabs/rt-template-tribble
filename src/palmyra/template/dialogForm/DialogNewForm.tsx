@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 import { FaCheck } from "react-icons/fa";
 import { IoMdClose } from "react-icons/io";
 import { IFormNewInput } from "../Types";
+import { getTitle } from "../util/TitleUtil";
 
 interface IDialogNewInput extends IFormNewInput {
     open: boolean
@@ -16,7 +17,7 @@ interface IDialogNewInput extends IFormNewInput {
 }
 
 const DialogNewForm: FC<IDialogNewInput> = (props) => {
-    const { onClose, open, title, onRefresh, size, refreshTopic } = props;
+    const { onClose, open, onRefresh, size, refreshTopic } = props;
     const [isValid, setValid] = useState<boolean>(false);
     const formRef = props.formRef ? props.formRef : useRef<ISaveForm>(null);
 
@@ -66,7 +67,7 @@ const DialogNewForm: FC<IDialogNewInput> = (props) => {
     const isDisabled = !(isValid && isAclAccess) || !!props.saveDisabled;
 
     return (
-        <Modal opened={open} onClose={onClose} title={title || ''} zIndex={999}
+        <Modal opened={open} onClose={onClose} title={getTitle(props.title, 'new')} zIndex={999}
             centered size={modalSize} closeOnClickOutside={false} trapFocus={false}>
             {props.headerContent}
             <PalmyraNewForm onValidChange={setValid} {...props.options} onQueryData={props.onQueryData}

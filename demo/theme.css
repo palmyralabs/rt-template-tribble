@@ -78,6 +78,18 @@ body * {
     margin: 0 auto;
 }
 
+.py-grid-data-row.py-row-warn td {
+    background: #fff7ed !important;
+}
+
+.py-grid-data-row.py-row-danger td {
+    background: #fef2f2 !important;
+}
+
+.py-grid-data-row.py-row-success td {
+    background: #f0fdf4 !important;
+}
+
 .py-form-header-container {
     position: sticky;
     top: 0;

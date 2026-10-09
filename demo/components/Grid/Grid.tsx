@@ -277,6 +277,17 @@ function Grid(props: any) {
                 title={"Summary Grid"}
                 options={{ endPoint }}
                 getPluginOptions={getPluginOptions}
+                getRowClass={(row) => Number(row.physicalProgress) < 50 ? 'py-row-warn' : undefined}
+                selectable="multi"
+                selectionBarContent={(rows, clear) => (
+                    <>
+                        <span>{rows.length} selected</span>
+                        <div style={{ display: 'flex', gap: 8 }}>
+                            <Button size="compact-sm" onClick={() => { }}>Approve all</Button>
+                            <Button size="compact-sm" variant="subtle" onClick={clear}>Clear</Button>
+                        </div>
+                    </>
+                )}
                 pageSize={[5, 10, 20]} />
             <DialogNewForm open={dialogOpen} onClose={() => setDialogOpen(false)}
                 title="New Project" size="xl" successMsg="Project created"

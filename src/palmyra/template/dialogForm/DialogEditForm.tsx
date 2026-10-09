@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 import { FaCheck } from "react-icons/fa";
 import { IoMdClose } from "react-icons/io";
 import { IFormEditInput } from "../Types";
+import { getTitle } from "../util/TitleUtil";
 
 interface IDialogEditInput extends IFormEditInput {
     open: boolean
@@ -56,7 +57,7 @@ const DialogEditForm: FC<IDialogEditInput> = (props) => {
     const isDisabled = !(isValid && isAclAccess) || !!props.saveDisabled;
 
     return (
-        <Modal opened={open} onClose={onClose} title={props.title || ''} zIndex={999}
+        <Modal opened={open} onClose={onClose} title={getTitle(props.title, 'edit')} zIndex={999}
             centered size={modalSize} closeOnClickOutside={false} trapFocus={false}>
             {props.headerContent}
             <PalmyraEditForm ref={formRef} onValidChange={setValid} id={props.id}
